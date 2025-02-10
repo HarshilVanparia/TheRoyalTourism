@@ -1,0 +1,143 @@
+/*
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}*/
+
+/* custom scrollbar start */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8C387C;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #803271;
+    }
+/* custom scrollbar end */
+
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+scroll{
+
+}
+
+
+html {
+    font-family: sans-serif;
+    scroll-behavior:smooth;
+}
+
+.main-text {
+    color: #8C387C;
+}
+
+
+li {
+    padding-inline: 16px;
+}
+
+nav {
+    margin-inline: 32px;
+}
+
+
+.royalbutton {
+    background-color: #8C387C;
+    padding-inline: 18 px;
+    border-radius: 100px;
+    font-weight: 600;
+}
+
+a {
+    color: midnightblue !important;
+    font-weight: 500;
+}
+
+    a:hover {
+        color: midnightblue !important;
+    }
+
+.nav-link {
+    color: midnightblue !important;
+}
+
+.home_banner {
+    height: 550px;
+    width: 100%;
+}
+
+.banner_content {
+    color: white;
+    position: absolute;
+    left: 10%;
+    top: 38%;
+}
+
+
+
+.banner_btn {
+    background-color: transparent;
+    color: white;
+    border: 1.7px solid white;
+    border-radius: 100px;
+    padding-block: 8px;
+    padding-inline: 30px;
+    font-weight: 500;
+    font-size:1rem;
+    transition: background-color 0.7s;
+}
+
+    .banner_btn:hover {
+        background-color: white;
+        color: black;
+        cursor:pointer;
+    }
+
+.inter_btn {
+    background-color: transparent;
+    color: white;
+    border: 1.7px solid white;
+    border-radius: 100px;
+    padding-block: 8px;
+    padding-inline: 30px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.7s;
+}
+
+    .inter_btn:hover {
+        background-color: white;
+        color: #C559B1;
+        cursor: pointer;
+    }
+
+
+.domestic_btn {
+    background-color: transparent;
+    color: #8C387C;
+    border: 1.7px solid #8C387C;
+    border-radius: 100px;
+    padding-block: 8px;
+    padding-inline: 30px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.7s;
+}
+
+    .domestic_btn:hover {
+        background-color: #8C387C;
+        color: white;
+        cursor: pointer;
+    }
+
