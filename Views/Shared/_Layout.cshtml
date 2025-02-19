@@ -4,75 +4,56 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TheRoyalTourism</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TheRoyalTourism.styles.css" asp-append-version="true" />
 
     @* links *@
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-<<<<<<< HEAD
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" /> *@
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-=======
->>>>>>> 9fad01c7a04751c9e1530b2716f6287e0f745fa6
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <link rel="stylesheet" href="~/css/site.css" />
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </head>
 <body>
-    <header>
-<<<<<<< HEAD
+
+    <header class="bg-white ">
         <div class="navbar-expand-lg text-center py-2" style="background-color:#8C387C;color:white;text-transform:capitalize;font-weight:500;font-size:12;">
             call us to get best deals - 1234569870, 3214569870
         </div>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="images/logo.svg" alt="Logo" class="d-inline-block align-text-center">
-                </a>
-=======
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="imgs/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-center">
-                    TheRoyalTourism</a>
->>>>>>> 9fad01c7a04751c9e1530b2716f6287e0f745fa6
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+
+        <nav class="navbar navbar-expand-lg bg-white  ">
+            <div class="container-fluid ">
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-
+                <div class="collapse navbar-collapse bg-white" id="navbarTogglerDemo01">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="images/logo.svg" alt="Logo" class="d-inline-block align-text-center">
+                    </a>
                     <ul class="navbar-nav ms-auto align-text-center mb-1 ">
+
                         <li class="nav-item">
-<<<<<<< HEAD
                             <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Privacy">About Us</a>
-=======
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">About Us</a>
->>>>>>> 9fad01c7a04751c9e1530b2716f6287e0f745fa6
-                        </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Destinations</a>
-                            <ul class="dropdown-menu">
-<<<<<<< HEAD
-                                <li class="dropdown-item"><a class="text-decoration-none" asp-controller="Employee" asp-action="Index">Domestic</a></li>
-                                <li class="dropdown-item"><a class="text-decoration-none" asp-controller="Employee" asp-action="AddEmployee">International</a></li>
-=======
-                                <li><a class="dropdown-item" asp-controller="Employee" asp-action="Index">Show Employee</a></li>
-                                <li><a class="dropdown-item" asp-controller="Employee" asp-action="AddEmployee">Add Employee</a></li>
->>>>>>> 9fad01c7a04751c9e1530b2716f6287e0f745fa6
+                            <ul class="dropdown-menu ">
+                                <li class="dropdown-item "><a class="text-decoration-none" asp-controller="Employee" asp-action="Index">Domestic</a></li>
+                                <li class="dropdown-item "><a class="text-decoration-none" asp-controller="Employee" asp-action="AddEmployee">International</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item">
-<<<<<<< HEAD
                             <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Privacy">Contact Us</a>
                         </li>
 
@@ -81,52 +62,147 @@
                         </li>
 
                         <li class="nav-item royalbutton">
-                            <a class="nav-link  text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Sign in</a>
-=======
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Contact Us</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Any Festival</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-white button" asp-area="" asp-controller="Home" asp-action="Privacy">Login</a>
->>>>>>> 9fad01c7a04751c9e1530b2716f6287e0f745fa6
+                            <a class="nav-link" style="color:white !important;" asp-area="" asp-controller="Home" asp-action="Privacy">Login</a>
                         </li>
 
                     </ul>
                 </div>
             </div>
         </nav>
+
     </header>
-<<<<<<< HEAD
+
+
     <div class="">
-=======
-    <div class="container">
->>>>>>> 9fad01c7a04751c9e1530b2716f6287e0f745fa6
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-<<<<<<< HEAD
-    
-    @* <footer class="border-top footer  mt-3" style="margin-top:23rem"> *@
-    @*     <div class="container text-center" style="color:midnightblue;font-weight:400;"> *@
-    @*         Copyrights &copy; 2025 Reserved by <a asp-area="" class="text-decoration-none" asp-controller="Home" asp-action="Privacy">The Royal Tourism</a> *@
-    @*     </div> *@
-    @* </footer> *@
 
-=======
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - TheRoyalTourism - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+    <br />
+    <br />
+    <br />
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-body-tertiary " style="background-color:#EEE8F6 !important;">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="ms-5 d-none d-lg-block ">
+                <i style="font-weight:500;" class="bi bi-headset main-text fs-3"></i> <span style="color:#05073D;font-weight:500;">Speak to our expert Travel Guide <span class="main-text"> 1-234-567-8901</span> </span>
+            </div>
+            <!-- Left -->
+            <!-- Right -->
+            <div class="d-flex justify-content-evenly">
+                <a>Follow Us : &nbsp;</a>
+                <a href="" class="me-4 ">
+                    <i class="bi bi-facebook  text-white footericon text-center rounded-pill p-2" ></i>
+                </a>
+                <a href="" class="me-4">
+                    <i class="bi bi-twitter text-white footericon text-center rounded-pill p-2"></i>
+                </a>
+                <a href="" class="me-4 ">
+                    <i class="bi bi-instagram text-white footericon text-center rounded-pill p-2" ></i>
+                </a>
+                <a href="" class="me-4 ">
+                    <i class="bi bi-linkedin text-white footericon text-center rounded-pill p-2" ></i>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-capitalize main-text fw-bold mb-4">
+                            The Royal Tourism
+                        </h6>
+                        <p class="normal-text">
+                            Providing Details about international &
+                            domestic packages with all the details about its famous foods, activities and places.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-capitalize fw-bold mb-4 main-text">
+                            Links
+                        </h6>
+                        <p>
+                            <a href="#!" class="normal-text">Home</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="normal-text">About Us</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="normal-text">Contact Us</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="normal-text">Register</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-capitalize fw-bold mb-4 main-text">
+                            Destinations
+                        </h6>
+                        <p>
+                            <a href="#!" class="normal-text">Domestic</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="normal-text">International</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-capitalize fw-bold mb-4 main-text">Contact</h6>
+                        <div class="d-flex">
+                            <i class="bi bi-geo-alt-fill me-3 footericon  text-white text-center rounded-pill " style="width:76px !important;height:35px !important;padding-top:4px;"></i>
+                            <p class="normal-text">
+                                2nd Floor, Tourism Plaza, Balayogi, Paryataka Bhavan, Begumpet, Hyderabad 500016.
+                            </p>
+                        </div>
+                        <div class="d-flex">
+                            <i class="bi bi-envelope-fill footericon me-3 text-white text-center rounded-pill " style="width:35px !important;height:35px !important;padding-top:4px;"></i>
+                            <p class="normal-text">
+                                contact@theroyaltourism.in
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            Copyrights © 2025 Reserved by 
+            <a class="fw-bold" style="color:#8C387C !important;">The Royal Tourism.</a>
         </div>
+        <!-- Copyright -->
     </footer>
->>>>>>> 9fad01c7a04751c9e1530b2716f6287e0f745fa6
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Footer -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    @* <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script> *@
+    @* <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
+    @* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
