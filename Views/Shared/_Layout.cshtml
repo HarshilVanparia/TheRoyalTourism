@@ -33,7 +33,7 @@
                 </button>
                 <div class="collapse navbar-collapse bg-white" id="navbarTogglerDemo01">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                        <img src="images/logo.svg" alt="Logo" class="d-inline-block align-text-center">
+                        <img src="~/Images/logo.svg" alt="Logo" class="d-inline-block align-text-center">
                     </a>
                     <ul class="navbar-nav ms-auto align-text-center mb-1 ">
 
@@ -42,7 +42,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Privacy">About Us</a>
+                            <a class="nav-link " asp-area="" asp-controller="OtherPages" asp-action="Aboutus">About Us</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -62,7 +62,7 @@
                         </li>
 
                         <li class="nav-item royalbutton">
-                            <a class="nav-link" style="color:white !important;" asp-area="" asp-controller="Home" asp-action="Privacy">Login</a>
+                            <a class="nav-link" style="color:white !important;" asp-area="" asp-controller="Home" asp-action="Privacy">Sign in</a>
                         </li>
 
                     </ul>
@@ -74,19 +74,15 @@
 
 
     <div class="">
-        <main role="main" class="pb-3">
+        <main role="main" class="">
             @RenderBody()
         </main>
     </div>
 
 
 
-    <br />
-    <br />
-    <br />
-
     <!-- Footer -->
-    <footer class="text-center text-lg-start bg-body-tertiary " style="background-color:#EEE8F6 !important;">
+    <footer class="text-center text-lg-start" style="background-color:#EEE8F6 !important;">
         <!-- Section: Social media -->
         <section class="d-flex container justify-content-lg-between p-4 ">
             <!-- Left -->
@@ -98,16 +94,16 @@
             <div class="d-flex mt-3">
                 <a>Follow Us : &nbsp;</a>
                 <a href="" class="me-4 ">
-                    <i class="bi bi-facebook  text-white footericon text-center rounded-pill p-2" ></i>
+                    <i class="bi bi-facebook text-white text-center p-2 rounded-pill" style="background-color:#8C387C;padding-top:4px !important;"></i>
                 </a>
                 <a href="" class="me-4">
-                    <i class="bi bi-twitter text-white footericon text-center rounded-pill p-2"></i>
+                    <i class="bi bi-twitter text-white text-center  p-2 rounded-pill" style="background-color:#8C387C;padding-top:4px !important;"></i>
                 </a>
                 <a href="" class="me-4 ">
-                    <i class="bi bi-instagram text-white footericon text-center rounded-pill p-2" ></i>
+                    <i class="bi bi-instagram text-white text-center p-2 rounded-pill" style="background-color:#8C387C;padding-top:4px !important;"></i>
                 </a>
                 <a href="" class="me-4 ">
-                    <i class="bi bi-linkedin text-white footericon text-center rounded-pill p-2" ></i>
+                    <i class="bi bi-linkedin text-white text-center p-2 rounded-pill" style="background-color:#8C387C;padding-top:4px !important;"></i>
                 </a>
             </div>
             <!-- Right -->
