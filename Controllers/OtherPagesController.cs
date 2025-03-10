@@ -12,5 +12,10 @@ namespace TheRoyalTourism.Controllers
         {
             return View();
         }
+        public IActionResult Contactus()
+        {
+            return View();
+        }
+
     }
 }

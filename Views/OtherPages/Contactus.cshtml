@@ -1,0 +1,177 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+}
+
+
+@* banner start*@
+<div class="home_banner d-flex align-items-end"
+     style="background-image:url('/Images/about_bg.png'); background-size:cover; background-attachment:fixed;padding: 40px;">
+
+    <div class="container-fluid d-flex justify-content-between align-items-center w-100">
+
+        <!-- Left Side: "About Us" -->
+        <h1 class="fw-bold text-white">Contact Us</h1>
+
+        <!-- Right Side: Breadcrumb -->
+        <div class="d-flex align-items-center">
+            <a class="text-white text-decoration-none me-2" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <i class="bi bi-chevron-right text-white"></i>
+            <a class="text-white text-decoration-underline ms-2">About Us</a>
+        </div>
+
+    </div>
+
+</div>
+@* banner end*@
+
+
+@* lets talk section start *@
+<section class="contact-details pt-6 pb-6 mb-5 mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="section-title">
+                    <h2 class="title">
+                        Let’s Talk Our Expert Travel Guides
+                    </h2>
+                </div>
+                <p>Our dedicated support team is always ready to assist you with any questions or issues, offering prompt and personalized solutions to meet your needs.</p>
+                <div class="expert-team">
+                    <h4 class="title">Expert Team member</h4>
+                    <div class="d-flex img-wrap">
+                        <img src="https://theroyaltourism.in/frontend/images/contact/team1.png" alt="team" loading="lazy">
+                        <img src="https://theroyaltourism.in/frontend/images/contact/team2.png" alt="team" loading="lazy">
+                        <img src="https://theroyaltourism.in/frontend/images/contact/team3.png" alt="team" loading="lazy">
+                        <img src="https://theroyaltourism.in/frontend/images/contact/add.svg" alt="team" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 mt-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="office-address">
+                            <h4 class="title">Hyderabad</h4>
+                            <ul class="">
+                                <li>
+                                    <img src="https://theroyaltourism.in/frontend/images/contact/location-icon.svg" alt="" loading="lazy">
+                                    2nd Floor, Tourism Plaza, Balayogi Paryataka Bhavan, Begumpet, Hyderabad 500016.
+                                </li>
+                                <li>
+                                    <img src="https://theroyaltourism.in/frontend/images/contact/email.svg" alt="" loading="lazy">
+                                    kolhapur@theroyaltourism.in
+                                </li>
+                                <li style="list-style:none;">
+                                    <img src="https://theroyaltourism.in/frontend/images/contact/call.svg" alt="" loading="lazy">
+                                    +91 7997008007
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="office-address">
+                            <h4 class="title">Goa</h4>
+                            <ul>
+                                <li>
+                                    <img src="https://theroyaltourism.in/frontend/images/contact/location-icon.svg" alt="" loading="lazy">
+                                    56/A2, Calangute, Candoilm Main Road, Gauravaddo, Calangute, Goa - 403515.
+                                </li>
+                                <li>
+                                    <img src="https://theroyaltourism.in/frontend/images/contact/email.svg" alt="" loading="lazy">
+                                    goa@theroyaltourism.in
+                                </li>
+                                <li style="list-style:none;">
+                                    <img src="https://theroyaltourism.in/frontend/images/contact/call.svg" alt="" loading="lazy">
+                                    +91 8977008007
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="office-address">
+                            <h4 class="title">Maharashtra</h4>
+                            <ul>
+                                <li>
+                                    <img src="https://theroyaltourism.in/frontend/images/contact/location-icon.svg" alt="" loading="lazy">
+                                    1st Floor, Shahupuri C Wing, Stearling Tower, Kolhapur, Maharashtra - 416003.
+                                </li>
+                                <li>
+                                    <img src="https://theroyaltourism.in/frontend/images/contact/email.svg" alt="" loading="lazy">
+                                    kolhapur@theroyaltourism.in
+                                </li>
+                                <li style="list-style:none;">
+                                    <img src="https://theroyaltourism.in/frontend/images/contact/call.svg" alt="" loading="lazy">
+                                    +91 7997008007
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* lets talk section end *@
+
+
+
+
+
+@* contact form start *@
+<section class="contact_section pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="row">
+                    <div class="col-xl-7 col-md-7 col-lg-7">
+                        <div class="contact-form">
+                            <div class="heading-section">
+                                <h2 class="title main-text">Get In Touch</h2>
+                            </div>
+                            <p class="font18">Your email address will not be published. Required fields are marked *</p>
+                            <form class="pt-3" method="POST" action="https://theroyaltourism.in/inquiry">
+                                <input type="hidden" name="_token" value="lTpV9r5Mkl1RXCz4b61qqD4v29RUedMMVoR7bZzH" autocomplete="off">
+                                <div class="row">
+                                    <div class="col-xl-6 col-md-6 col-lg-6 mb-3">
+                                        <label class="form-label">Full Name*</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Full Name" value="" required="">
+                                        <div class="text-danger text-sm"></div>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 col-lg-6 mb-3">
+                                        <label class="form-label">Phone Number*</label>
+                                        <input type="text" name="phone_number" class="form-control" placeholder="Phone" value="" required="">
+                                        <div class="text-danger text-sm"></div>
+                                    </div>
+                                    <div class="col-xl-12 mb-3">
+                                        <label class="form-label">Email Address*</label>
+                                        <input type="email" name="email" class="form-control" placeholder="Email" value="" required="">
+                                        <div class="text-danger text-sm"></div>
+                                    </div>
+                                    <div class="col-xl-12 mb-3">
+                                        <label class="form-label">Your Message</label>
+                                        <textarea class="form-control textarea" id="message-text" name="message" placeholder="Message" rows="5"></textarea>
+                                        <div class="text-danger text-sm"></div>
+                                    </div>
+                                    <div class="col-xl-12 mt-4">
+                                        <div class="btn-box text-center text-md-start">
+                                            <button type="submit" class="btn btn-fill">
+                                                Send Message &nbsp;
+                                                <i class="bi-light bi-arrow-right bi-rotate-by" ></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-md-5 col-lg-5">
+                        <div class="img-box ps-xl-5">
+                            <img src="https://theroyaltourism.in/frontend/images/contact/right.png" class="img-fluid" loading="lazy" alt="contact">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* contact form end *@

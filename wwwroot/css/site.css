@@ -36,9 +36,9 @@
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -116,7 +116,6 @@ a {
     position: absolute;
     left: 10%;
     bottom: 15%;
-
 }
 
 .home_banner {
@@ -241,10 +240,12 @@ a {
     transform: translateX(-200px);
     margin-top: 70px;
 }
+
 .section-title h2 {
     color: var(--primery);
     font-weight: 700;
 }
+
 .why-choose-us .chose-box {
     border-radius: 24px;
     box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.15);
@@ -252,6 +253,7 @@ a {
     background-color: #fff;
     min-height: 235px;
 }
+
 .why-choose-us .choose-row .title {
     margin-top: 20px;
     color: var(--primery);
@@ -259,3 +261,100 @@ a {
     font-size: 19px;
 }
 /* why choose us end */
+
+/* contact start */
+.contact-details .section-title {
+    padding-top: 48px;
+}
+
+.contact-details .title {
+    margin-bottom: 24px;
+}
+
+.section-title h2 {
+    color: var(--primery);
+    font-weight: 700;
+    font-family: "DM Sans", serif;
+}
+
+.expert-team {
+    background-color: #F9F9F7;
+    border: 1px solid #E9E9E9;
+    border-radius: 8px;
+    padding: 28px;
+    margin-top: 24px;
+}
+
+    .expert-team .title {
+        color: #05073D;
+        margin-bottom: 1rem;
+    }
+
+.office-address {
+    background-color: #F9F9F7;
+    border: 1px solid #E9E9E9;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 390px;
+    height: 100%;
+}
+.contact-details .row {
+    gap: 40px 0;
+}
+.office-address .title {
+    color: var(--primery);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.office-address ul li:not(:last-child) {
+    margin-bottom: 12px;
+    list-style:none;
+}
+.office-address ul li {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+
+
+
+.contact_section .contact-form {
+    padding: 2rem;
+    background-color: #F9F9F7;
+    border: 1px solid #E9E9E9;
+    border-radius: 8px;
+    min-height: 100%;
+}
+
+.contact-form {
+    background-color: #F9F9F7;
+    border: 1px solid #E9E9E9;
+    border-radius: 12px;
+    margin: 0 auto;
+    padding: 38px 37px 60px 37px;
+    min-height: 760px;
+}
+.font18 {
+    font-size: 15px !important;
+}
+
+.btn.btn-fill, .btn-send {
+    background-color: var(--primery) !important;
+    color: var(--white) !important;
+    font-weight: 400;
+}
+
+.btn-box .btn {
+    background: transparent;
+    border-radius: 50px;
+    color: #fff;
+    padding: 5px 20px;
+    display: inline-flex;
+    font-size: 15px;
+    align-items: center;
+    font-family: "DM Sans", serif;
+    letter-spacing: 1px;
+    border: 1px solid var(--white);
+}
+/* contact end */
