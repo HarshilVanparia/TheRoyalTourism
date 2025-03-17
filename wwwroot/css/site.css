@@ -306,18 +306,16 @@ a {
     font-weight: 600;
     margin-bottom: 1rem;
 }
+
 .office-address ul li:not(:last-child) {
     margin-bottom: 12px;
-    list-style:none;
 }
+
 .office-address ul li {
     display: flex;
     gap: 8px;
     align-items: flex-start;
 }
-
-
-
 
 .contact_section .contact-form {
     padding: 2rem;
