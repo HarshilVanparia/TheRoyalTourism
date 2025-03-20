@@ -17,5 +17,10 @@ namespace TheRoyalTourism.Controllers
         {
             return View();
         }
+
+        public IActionResult AnyFestival()
+        {
+            return View();
+        }
     }
 }
