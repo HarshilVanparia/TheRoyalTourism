@@ -1,0 +1,305 @@
+﻿@{
+    ViewData["Title"] = "TourDetailsPage";
+}
+
+@* Tour Details Page *@
+<section class="container">
+    <div class="m-3 mt-5 d-flex gap-2 ">
+        <h5 class="normal-text">
+            Home
+        </h5>
+        <i class="bi bi-chevron-right fw-bold fs-5"></i>
+        <h5 class="normal-text">
+            Tours
+        </h5>
+        <i class="bi bi-chevron-right fw-bold fs-5"></i>
+        <h5 class="normal-text">
+            Goa
+        </h5>
+    </div>
+
+    <div class="d-flex ">
+        <div class="m-3  d-flex gap-2 tourtags  px-3 py-2">
+            <img src="/Images/tourlocation.svg">
+            <h5 class="mt-1">
+                Pickup - Goa Dabolim International Airport
+            </h5>
+        </div>
+
+        <div class="m-3  d-flex gap-2 tourlocation  px-3 py-2">
+            <img src="/Images/airtime.svg">
+            <h5 class="mt-1 normal-text">
+                6N - 7D
+            </h5>
+        </div>
+    </div>
+
+    <div class="m-3 mt-3  ">
+        <h1 class="main-text">Goa Bliss Packages</h1>
+    </div>
+
+    @* 4 images *@
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="img-container large">
+                    <img src="/Images/img/img1.svg" alt="Sunset">
+                </div>
+            </div>
+            <div class="col-md-6 d-flex flex-column justify-content-between">
+                <div class="img-container small">
+                    <img src="/Images/img/img2.svg" alt="Beach">
+                </div>
+                <div class="row g-3 mt-2">
+                    <div class="col-md-6">
+                        <div class="img-container small">
+                            <img src="/Images/img/img3.svg" alt="Palm Trees">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="img-container small">
+                            <img src="/Images/img/img4.svg" alt="Restaurant">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* 4 images *@
+
+    @* tabs *@
+    <div class="px-2 mt-4">
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-pills mb-3 tour_nav">
+            <li class="nav-item active">
+                <a class="nav-link " style="color:white!important;" href="#overview">Overview & Highlights</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#inclusions">Inclusions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exclusions">Exclusions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#itinerary">Itinerary</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#other-info">Other Info</a>
+            </li>
+        </ul>
+
+        <!-- Section Content -->
+        <div id="overview" class="">
+            <h2 class="main-text">Tour Overview</h2>
+            <p class="mt-3">
+                Welcome to Goa, a tropical haven known for its sun-soaked beaches, vibrant culture, and unforgettable experiences. This tour will take you through the heart of Goa's coastal charm, from the lively shores of Baga to the serene sands of Palolem.<br />
+                Dive into the crystal-clear Arabian waters, explore quaint Portuguese-era architecture, and immerse yourself in the electrifying nightlife. Whether you're a thrill-seeker ready for water sports or a traveler seeking tranquility by the sea, Goa promises something for everyone.<br />
+                Relax, rejuvenate, and let Goa's laid-back vibe captivate your soul. Perfect for beach lovers, party enthusiasts, and those seeking an idyllic escape!
+            </p>
+            <h2 class="main-text mt-4">Tour Highlights</h2>
+            <ul>
+                <li class="my-2 mt-4">
+                    Lounge on the sun-kissed shores of popular beaches like Baga, Anjuna, and Calangute.
+                </li>
+                <li class="my-2">
+                    Dive into thrilling water sports like parasailing, jet-skiing, banana boat rides, and scuba diving.
+                </li>
+                <li class="my-2">
+                    Explore Goa's legendary beach parties, nightclubs, and shacks with music, drinks, and laughter under the stars.
+                </li>
+                <li class="my-2">
+                    Relish authentic Goan seafood and global cuisines at beachside cafes and restaurants.
+                </li>
+                <li class="my-2">
+                    Witness mesmerizing sunsets at Vagator or Palolem, perfect for photographers and romantics alike.
+                </li>
+                <li class="my-2">
+                    Stroll through flea markets for souvenirs, beachwear, and unique handicrafts.
+                </li>
+                <li class="my-2">
+                    Take a boat ride to Grand Island or Butterfly Beach for secluded natural beauty.
+                </li>
+            </ul>
+        </div>
+
+        <hr class="my-5" style="color:#ADBADA;border: 2px solid #ADBADA;" />
+
+        <div class="d-flex gap-5">
+            <div id="inclusions" class="section">
+                <h2 class="main-text">Inclusions</h2>
+
+                <div class="d-flex gap-2 pt-2">
+                    <img src="/Images/Icons/right.svg">
+                    <p class="mt-3">
+                        Beverages, drinking water, morning
+                        tea and buffet lunch
+                    </p>
+                </div>
+
+                <div class="d-flex gap-2 ">
+                    <img src="/Images/Icons/right.svg">
+                    <p class="mt-3">
+                        Local taxes
+                    </p>
+                </div>
+
+                <div class="d-flex gap-2 ">
+                    <img src="/Images/Icons/right.svg">
+                    <p class="mt-3">
+                        Hotel pickup and drop-off by
+                        air-conditioned minivan
+                    </p>
+                </div>
+
+                <div class="d-flex gap-2 ">
+                    <img src="/Images/Icons/right.svg">
+                    <p class="mt-3">
+                        InsuranceTransfer to a private pier
+                    </p>
+                </div>
+
+                <div class="d-flex gap-2 ">
+                    <img src="/Images/Icons/right.svg">
+                    <p class="mt-3">
+                        Soft drinks
+                    </p>
+                </div>
+
+                <div class="d-flex gap-2 ">
+                    <img src="/Images/Icons/right.svg">
+                    <p class="mt-3">
+                        Tour Guide
+                    </p>
+                </div>
+
+            </div>
+
+            <div id="exclusions" class="mx-5">
+                <h2 class="main-text">Exclusions</h2>
+
+                <div class="d-flex gap-2 pt-2">
+                    <img src="/Images/Icons/wrong.svg">
+                    <p class="mt-3">
+                        Towel
+                    </p>
+                </div>
+
+                <div class="d-flex gap-2 pt-2">
+                    <img src="/Images/Icons/wrong.svg">
+                    <p class="mt-3">
+                        Tips
+                    </p>
+                </div>
+
+                <div class="d-flex gap-2 pt-2">
+                    <img src="/Images/Icons/wrong.svg">
+                    <p class="mt-3">
+                        Alcoholic Beverages
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <hr class="my-5" style="color:#ADBADA;border: 2px solid #ADBADA;" />
+
+        <div id="itinerary" class="section">
+            <h2 class="main-text">Itinerary</h2>
+
+            <div class="d-flex gap-2 pt-2">
+                <img src="/Images/Icons/circle.svg">
+                <p class="mt-3 itinerary_font">
+                    Day 1: Airport Pick Up
+                </p>
+            </div>
+
+            <div class="d-flex gap-2 pt-2">
+                <img src="/Images/Icons/circle.svg">
+                <p class="mt-3 itinerary_font">
+                    Day 2: Temples & River Cruise
+                </p>
+            </div>
+
+            <div class="d-flex gap-2 pt-2">
+                <img src="/Images/Icons/circle.svg">
+                <p class="mt-3 itinerary_font">
+                    Day 3: Massage & Overnight Train
+                </p>
+            </div>
+
+            <div class="d-flex gap-2 pt-2">
+                <img src="/Images/Icons/circle.svg">
+                <p class="mt-3 itinerary_font">
+                    Day 4: Khao Sok National Park
+                </p>
+            </div>
+
+            <div class="d-flex gap-2 pt-2">
+                <img src="/Images/Icons/circle.svg">
+                <p class="mt-3 itinerary_font">
+                    Day 5: Travel to Koh Phangan
+                </p>
+            </div>
+
+            <div class="d-flex gap-2 pt-2">
+                <img src="/Images/Icons/circle.svg">
+                <p class="mt-3 itinerary_font">
+                    Day 6: Morning Chill & Muay Thai Lesson
+                </p>
+            </div>
+
+            <div class="d-flex gap-2 pt-2">
+                <img src="/Images/Icons/circle.svg">
+                <p class="mt-3 itinerary_font">
+                    Day 7: Island Boat Trip
+                </p>
+            </div>
+
+        </div>
+
+        <hr class="my-5" style="color:#ADBADA;border: 2px solid #ADBADA;" />
+
+        <div id="other-info" class="section mb-5">
+            <h2 class="main-text">Other Info</h2>
+            <div class="d-flex justify-content-between gap-5 mt-3 ">
+                <div class="must_have ">
+                    <h5 class="main-text">Royal’s Must-Haves</h5>
+                    <li class="mt-1">
+                        Power bank, universal travel adapter, and spare chargers.
+                    </li>
+                    <li class="mt-1">
+                        Sunscreen, insect repellent, and hand sanitizer.
+                    </li>
+                    <li class="mt-1">
+                        Comfortable shoes for walking and exploring.
+                    </li>
+                    <li class="mt-1">
+                        Lightweight, breathable clothes suitable for the weather.
+                    </li>
+                    <li class="mt-1">
+                        A reusable water bottle or hydration pack.
+                    </li>
+                </div>
+                <div class="safety">
+                    <h5 class="main-text">Safety Precautions</h5>
+                    <li class="mt-1">
+                        Keep emergency contact numbers handy (local police, ambulance, and embassy).
+                    </li>
+                    <li class="mt-1">
+                        Carry personal medications and a first-aid kit.
+                    </li>
+                    <li class="mt-1">
+                        Avoid drinking tap water; stick to bottled or filtered water.
+                    </li>
+                    <li class="mt-1">
+                        Stay aware of your surroundings, especially in crowded areas.
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* tabs *@
+
+</section>
+@* Tour Details Page *@
+

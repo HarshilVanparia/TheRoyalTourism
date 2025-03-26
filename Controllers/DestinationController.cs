@@ -26,6 +26,10 @@ namespace TheRoyalTourism.Controllers
         public IActionResult PackagesPage()
         {
             return View();
+        } 
+        public IActionResult TourDetailsPage()
+        {
+            return View();
         }
     }
 }

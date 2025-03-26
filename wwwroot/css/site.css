@@ -40,7 +40,6 @@
 * {
     margin: 0;
     padding: 0;
-
 }
 
 html {
@@ -51,7 +50,6 @@ html {
 
 body {
     background-color: white !important;
-
 }
 
 .main-text {
@@ -277,9 +275,11 @@ a {
     max-width: 390px;
     height: 100%;
 }
+
 .contact-details .row {
     gap: 40px 0;
 }
+
 .office-address .title {
     color: var(--primery);
     font-weight: 600;
@@ -312,6 +312,7 @@ a {
     padding: 38px 37px 60px 37px;
     min-height: 760px;
 }
+
 .font18 {
     font-size: 15px !important;
 }
@@ -345,6 +346,7 @@ a {
     display: flex;
     align-items: center;
 }
+
     .prod_title h1 {
         color: var(--white);
         font-weight: 700;
@@ -375,13 +377,14 @@ a {
 
 .packages-plan .location {
     font-size: 15px;
-    font-weight:400;
+    font-weight: 400;
     color: var(--blue);
     margin-bottom: 8px;
     display: flex;
     align-items: center;
     gap: 4px;
 }
+
 .packages-plan .price {
     font-size: 18px;
     color: var(--blue);
@@ -406,6 +409,7 @@ a {
 .card-content h2 {
     font-size: 24px;
 }
+
 .packages-plan .view-more {
     text-decoration: none;
     font-size: 17px;
@@ -415,6 +419,7 @@ a {
     align-items: center;
     gap: 4px;
 }
+
 .packages-plan .price span {
     display: inline-block;
     font-size: 18px;
@@ -423,6 +428,7 @@ a {
 .prim-txt {
     color: var(--primery);
 }
+
 .fa-lg {
     font-size: 1.50em;
     line-height: .05em;
@@ -433,16 +439,44 @@ a {
 
 
 
-<<<<<<< HEAD
 .packageimg img {
     object-fit: cover; /* Ensures image covers the container without stretching */
     transition: transform 0.3s ease; /* Smooth transition */
 }
-    .packageimg img:hover {
-        transform: scale(97%) 
-    }
-=======
-/*any festival*/
 
-/*any festival*/
->>>>>>> 5b8ec4d2fd6707b56d0a5d1be240b231728d6cf2
+    .packageimg img:hover {
+        transform: scale(97%)
+    }
+
+
+
+/*Tour Details*/
+.tourtags {
+    background-color: var(--primery);
+    color: white;
+    width: fit-content;
+    border-radius: 12px;
+}
+
+.tourlocation {
+    background-color: #EEE8F6;
+    color: white;
+    width: fit-content;
+    border-radius: 12px;
+}
+
+.tour_nav {
+    border: 2px var(--primery) solid;
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.active {
+    background-color: var(--primery) !important;
+    border-bottom-left-radius:50px;
+    border-top-left-radius:50px;
+}
+.itinerary_font{
+    font-weight:500;
+}
+/*Tour Details*/
