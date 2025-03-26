@@ -22,13 +22,10 @@ namespace TheRoyalTourism.Controllers
         {
             return View();
         }
-<<<<<<< HEAD
 
         public IActionResult PackagesPage()
         {
             return View();
         }
-=======
->>>>>>> 5b8ec4d2fd6707b56d0a5d1be240b231728d6cf2
     }
 }
