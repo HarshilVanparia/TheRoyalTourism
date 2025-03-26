@@ -433,6 +433,7 @@ a {
 
 
 
+<<<<<<< HEAD
 .packageimg img {
     object-fit: cover; /* Ensures image covers the container without stretching */
     transition: transform 0.3s ease; /* Smooth transition */
@@ -440,3 +441,8 @@ a {
     .packageimg img:hover {
         transform: scale(97%) 
     }
+=======
+/*any festival*/
+
+/*any festival*/
+>>>>>>> 5b8ec4d2fd6707b56d0a5d1be240b231728d6cf2
