@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "RegisterPage";
+}
+<style>
+    .register_section .contact-form {
+        padding: 2rem;
+        background-color: #F9F9F7;
+        border: 1px solid #E9E9E9;
+        border-radius: 8px;
+        min-height: 100%;
+    }
+
+    .btn.btn-reg, .btn-send {
+        background-color: var(--primery) !important;
+        color: var(--white) !important;
+        font-weight: 500;
+        justify-content: center;
+        height: 50px;
+        font-size: 24px;
+        font-family: Arial;
+    }
+
+</style>
+
+@* register form *@
+<div class="py-5" style="background-image: url('/Images/login_banner.png');background-size:cover; background-attachment:fixed;">
+    <div class="container  col-md-8 col-lg-8 col-sm-12 col-xl-5 py-5 ">
+        <section class="register_section pt-5 pb-5 ">
+            <div class="contact-form shadow-lg">
+                <div class="heading-section text-center">
+                    <h2 class="text-center" style="font-family: 'Freestyle Script';font-weight:500;">Your Adventure Awaits </h2>
+                </div>
+                <h2 class="text-center main-text">Join Us Today!</h2>
+                <form class="pt-3 " method="POST">
+                    <input type="hidden" name="_token" value="lTpV9r5Mkl1RXCz4b61qqD4v29RUedMMVoR7bZzH" autocomplete="off">
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6 col-lg-6 mb-3">
+                            <label class="form-label">Full Name*</label>
+                            <input type="text" name="name" class="form-control" placeholder="Full Name" value="" required="">
+                            <div class="text-danger text-sm"></div>
+                        </div>
+                        <div class="col-xl-6 col-md-6 col-lg-6 mb-3">
+                            <label class="form-label">Phone Number*</label>
+                            <input type="number" name="phone_number" class="form-control" placeholder="1236547890" value="" required="">
+                            <div class="text-danger text-sm"></div>
+                        </div>
+                        <div class="col-xl-6 col-md-6 col-lg-6 mb-3">
+                            <label class="form-label">Email Address*</label>
+                            <input type="email" name="name" class="form-control" placeholder="jenterprisies@gmail.com" value="" required="">
+                            <div class="text-danger text-sm"></div>
+                        </div>
+                        <div class="col-xl-6 col-md-6 col-lg-6 mb-3">
+                            <label class="form-label">Password*</label>
+                            <input type="password" name="phone_number" class="form-control" placeholder="********" value="" required="">
+                            <div class="text-danger text-sm"></div>
+                        </div>
+                        <div class="col-xl-12 mt-4 ">
+                            <div class="btn-box text-center text-md-center ">
+                                <button type="submit" class="btn btn-reg col-xl-12">
+                                    Register &nbsp;
+                                    <i class="bi bi-arrow-up-right "></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 mt-4 ">
+                            <div class="justify-content-center d-flex gap-2">
+                                Already have an account? <a asp-controller="Register" asp-action="LoginPage" style="color:#8C387C !important;" class="fw-bold">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+@* register form *@
