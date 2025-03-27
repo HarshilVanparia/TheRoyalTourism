@@ -1,0 +1,213 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Forms";
+}
+
+<div class="pagetitle">
+    <h1>Forms</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-action="Index" asp-controller="Home">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Forms</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add User</h5>
+
+                    <form method="post" enctype="multipart/form-data" class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label">Full Name</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Email</label>
+                            <input class="form-control" type="text"/>
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Number</label>
+                            <input class="form-control" type="number" />
+                            <span class="text-danger"></span>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <label class="form-label">Password</label>
+                            <input class="form-control" type="password" />
+                            <span class="text-danger"></span>
+                        </div>
+                       
+                        <div class=" text-center">
+                            <button type="submit" class="royalbutton col-md-12">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Destinations </h5>
+
+                    <form method="post" enctype="multipart/form-data" class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label">Name</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Thumbnail</label>
+                            <input type="file" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Destination Type</label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                                <option  value="Domestic">Domestic</option>
+                                <option  value="International">International</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class=" text-center">
+                            <button type="submit" class="royalbutton col-md-12">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Anime</h5>
+
+                    <form method="post" enctype="multipart/form-data" class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label">Name</label>
+                            <input class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">MyAnimeList</label>
+                            <input class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Type</label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Description</label>
+                            <input class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Aired</label>
+                            <input type="date" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Duration</label>
+                            <input type="number" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Resolution</label>
+                            <input type="number" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Thumbnail</label>
+                            <input type="file" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Anime</h5>
+
+                    <form method="post" enctype="multipart/form-data" class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label">Name</label>
+                            <input class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">MyAnimeList</label>
+                            <input class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Type</label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Description</label>
+                            <input class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Aired</label>
+                            <input type="date" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Duration</label>
+                            <input type="number" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Resolution</label>
+                            <input type="number" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Thumbnail</label>
+                            <input type="file" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
