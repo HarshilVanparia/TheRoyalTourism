@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = null; 
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -55,25 +55,36 @@
         </nav>
     </header>
     <!-- End Header -->
-
     <!-- Sidebar -->
     <aside class="sidebar">
         <ul class="sidebar-nav">
-            <li class="nav-item">
-                <a class="nav-link @(ViewData["ActivePage"] == "Dashboard" ? "active" : "")" href="@Url.Action("Dashboard", "Admin")">
-                    <i class="bi bi-grid"></i> <span>Dashboard</span>
+            <li class="nav-item active">
+                <a class="nav-link " href="@Url.Action("Dashboard", "Admin")">
+                    <i class="bi bi-grid"></i> <span>Royal Dashboard</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @(ViewData["ActivePage"] == "Forms" ? "active" : "")" href="@Url.Action("Forms", "Admin")">
-                    <i class="bi bi-newspaper"></i> <span>Forms</span>
+                <a class="nav-link " href="@Url.Action("Forms", "Admin")">
+                    <i class="bi bi-newspaper"></i> <span>Royal Forms</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @(ViewData["ActivePage"] == "Tables" ? "active" : "")" href="@Url.Action("Tables", "Admin")">
+                <a class="nav-link " href="@Url.Action("DataTables", "Admin")">
                     <i class="bi bi-layout-text-window-reverse"></i> <span>Data Tables</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link " href="@Url.Action("Packages", "Admin")">
+                    <i class="bi bi-layout-text-window-reverse"></i> <span>Packages</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link @(ViewData["ActivePage"] == "Details" ? "active" : "")" href="@Url.Action("Details", "Admin")">
+                    <i class="bi bi-layout-text-window-reverse"></i> <span>Details</span>
+                </a>
+            </li>
+
         </ul>
     </aside>
     <!-- End Sidebar -->

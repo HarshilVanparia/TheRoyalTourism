@@ -15,6 +15,10 @@ namespace TheRoyalTourism.Controllers
         public IActionResult Forms()
         {
             return View();
+        }  
+        public IActionResult DataTables()
+        {
+            return View();
         }
     }
 }

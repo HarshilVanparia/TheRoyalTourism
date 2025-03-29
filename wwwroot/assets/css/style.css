@@ -1,3 +1,6 @@
+/*admin panel css*/
+
+
 :root {
     scroll-behavior: smooth;
     --primery: #8C387C;
@@ -7,6 +10,12 @@
 .main-text {
     color: #8C387C !important;
 }
+
+.normal-text {
+    color: #05073D !important;
+}
+
+
 
 .royalbutton {
     background-color: #8C387C;

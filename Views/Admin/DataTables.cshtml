@@ -1,0 +1,283 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "DataTables";
+}
+
+<div class="pagetitle">
+    <h1>Data Tables</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-action="Dashboard" asp-controller="Admin">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Data Tables</li>
+        </ol>
+    </nav>
+</div>
+
+
+<style>
+    .btn-royal {
+        background-color: #8C387C;
+        color: white;
+    }
+
+    .royalicon {
+        background-color: #8C387C;
+        color: white;
+        border-radius: 4px;
+        padding-block: 0.4rem;
+        padding-inline: 0.7rem;
+    }
+</style>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Users</h5>
+                    <table class="table datatable table-hover table-responsive-xxl">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Email Address</th>
+                                <th class="text-center">Number</th>
+                                <th class="text-center">Password</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Change Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @* @foreach (var user in Model) *@
+                            @* { *@
+                            <tr>
+                                <td class="text-center">Name</td>
+                                <td class="text-center">Email</td>
+                                <td class="text-center">1230456987</td>
+                                <td class="text-center">******</td>
+                                <td class="text-center">
+                                    @* @if (user.Status == "Active") *@
+                                    @* { *@
+                                    <i class='bi-check-circle-fill Active text-danger'></i>
+                                    <p class='px-1 Active d-inline fs-6 text-danger'>Inactive</p>
+                                    @* } *@
+                                    @* else *@
+                                    @* { *@
+                                    <i class='bi-x-circle-fill Inactive text-success'></i>
+                                    <p class='px-1 Inactive d-inline fs-6 text-success'>Active</p>
+                                    @* } *@
+                                </td>
+                                <td class="text-center">
+                                    @* @if (user.Status == "Active") *@
+                                    @* { *@
+                                    <a href="#" class='btn btn-royal'>Inactive</a>
+                                    @* } *@
+                                    @* else *@
+                                    @* { *@
+                                    <a href="#" class='btn btn-royal'>Active</a>
+                                    @* } *@
+                                </td>
+                            </tr>
+                            @* } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Types Table -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Activity Types</h5>
+                    <table class="table datatable table-hover table-responsive-xxl">
+                        <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">Icons</th>
+                                <th class="text-center">Names</th>
+                                <th class="text-center">Manage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @* @foreach (var anime in Model) *@
+                            @* { *@
+                            <tr>
+                                <td class="text-center">1</td>
+                                <td class="text-center">
+                                    <img class='rounded-circle' style='width: 50px;height: 50px;' src="Thumbnail" />
+                                </td>
+                                <td class="text-center">Surfing</td>
+                                <td class="text-center">
+                                    <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
+                                </td>
+                            </tr>
+                            @* } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Itinerary Table -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Itinerary</h5>
+                    <table class="table datatable table-hover table-responsive-xxl">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Package Name</th>
+                                <th class="text-center">Day1</th>
+                                <th class="text-center">Day2</th>
+                                <th class="text-center">Day3</th>
+                                <th class="text-center">Day4</th>
+                                <th class="text-center">Day5</th>
+                                <th class="text-center">Day6</th>
+                                <th class="text-center">Day7</th>
+                                <th class="text-center">Manage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @* @foreach (var anime in Model) *@
+                            @* { *@
+                            <tr>
+                                <td class="text-center">Goa Adventure Trail</td>
+                                <td class="text-center text-truncate ">Temples...</td>
+                                <td class="text-center text-truncate">Temples...</td>
+                                <td class="text-center text-truncate">Temples...</td>
+                                <td class="text-center text-truncate">Temples...</td>
+                                <td class="text-center text-truncate">Temples...</td>
+                                <td class="text-center text-truncate">Temples...</td>
+                                <td class="text-center text-truncate">Temples...</td>
+                                <td class="text-center">
+                                    <a href="#"><i class='bi bi-pencil-square fw-bold fs-5 royalicon'></i></a>
+                                    <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
+                                </td>
+                            </tr>
+                            @* } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Activities Table -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Activities</h5>
+                    <table class="table datatable table-hover table-responsive-xxl">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Details</th>
+                                <th class="text-center">Time</th>
+                                <th class="text-center">Location</th>
+                                <th class="text-center">Activity</th>
+                                <th class="text-center">Image</th>
+                                <th class="text-center">D.Name</th>
+                                <th class="text-center">Manage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @* @foreach (var anime in Model) *@
+                            @* { *@
+                            <tr>
+                                <td class="text-center text-truncate ">A lively....</td>
+                                <td class="text-center ">7 Hours</td>
+                                <td class="text-center ">Baga Beach</td>
+                                <td class="text-center ">Chilling</td>
+                                <td class="text-center">
+                                    <img class='rounded-circle' style='width: 50px;height: 50px;' src="Thumbnail" />
+                                </td>
+                                <td class="text-center ">Goa</td>
+                                <td class="text-center">
+                                    <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
+                                </td>
+                            </tr>
+                            @* } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Foods Table -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Foods</h5>
+                    <table class="table datatable table-hover table-responsive-xxl">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Details</th>
+                                <th class="text-center">Location</th>
+                                <th class="text-center">Image</th>
+                                <th class="text-center">D.Name</th>
+                                <th class="text-center">Manage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @* @foreach (var anime in Model) *@
+                            @* { *@
+                            <tr>
+                                <td class="text-center text-truncate ">A lively....</td>
+                                <td class="text-center ">Palolem Beach</td>
+                                <td class="text-center">
+                                    <img class='rounded-circle' style='width: 50px;height: 50px;' src="Thumbnail" />
+                                </td>
+                                <td class="text-center ">Goa</td>
+                                <td class="text-center">
+                                    <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
+                                </td>
+                            </tr>
+                            @* } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Destinations  Table -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Destinations </h5>
+                    <table class="table datatable table-hover table-responsive-xxl">
+                        <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Image</th>
+                                <th class="text-center">Type</th>
+                                <th class="text-center">Manage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @* @foreach (var anime in Model) *@
+                            @* { *@
+                            <tr>
+                                <td class="text-center text-truncate ">1</td>
+                                <td class="text-center ">Andaman</td>
+                                <td class="text-center">
+                                    <img class='rounded-circle' style='width: 50px;height: 50px;' src="Thumbnail" />
+                                </td>
+                                <td class="text-center ">Domestic</td>
+                                <td class="text-center">
+                                    <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
+                                </td>
+                            </tr>
+                            @* } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>

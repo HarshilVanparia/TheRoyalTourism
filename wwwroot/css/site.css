@@ -15,6 +15,7 @@
 }
 /* custom scrollbar start */
 
+
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -52,13 +53,6 @@ body {
     background-color: white !important;
 }
 
-.main-text {
-    color: #8C387C;
-}
-
-.normal-text {
-    color: #05073D;
-}
 
 
 li {
