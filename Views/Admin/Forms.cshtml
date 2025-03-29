@@ -16,7 +16,10 @@
 </div>
 
 <section class="section">
+
+    @* row 1 *@
     <div class="row">
+        @* Add User *@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
@@ -31,7 +34,7 @@
 
                         <div class="col-md-12">
                             <label class="form-label">Email</label>
-                            <input class="form-control" type="text"/>
+                            <input class="form-control" type="text" />
                             <span class="text-danger"></span>
                         </div>
 
@@ -40,13 +43,13 @@
                             <input class="form-control" type="number" />
                             <span class="text-danger"></span>
                         </div>
-                        
+
                         <div class="col-md-12">
                             <label class="form-label">Password</label>
                             <input class="form-control" type="password" />
                             <span class="text-danger"></span>
                         </div>
-                       
+
                         <div class=" text-center">
                             <button type="submit" class="royalbutton col-md-12">Submit</button>
                         </div>
@@ -55,6 +58,8 @@
             </div>
         </div>
 
+
+        @* Add Destinations *@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
@@ -77,8 +82,8 @@
                             <label class="form-label">Destination Type</label>
                             <select class="form-select">
                                 <option hidden value="">Select</option>
-                                <option  value="Domestic">Domestic</option>
-                                <option  value="International">International</option>
+                                <option value="Domestic">Domestic</option>
+                                <option value="International">International</option>
                             </select>
                             <span class="text-danger"></span>
                         </div>
@@ -90,60 +95,113 @@
                 </div>
             </div>
         </div>
-    </div>
 
-
-
-
-    <div class="row">
+        @* Add Packages *@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add Anime</h5>
+                    <h5 class="card-title">Add Packages</h5>
 
                     <form method="post" enctype="multipart/form-data" class="row g-3">
                         <div class="col-md-12">
                             <label class="form-label">Name</label>
-                            <input class="form-control" />
+                            <input class="form-control" type="text" />
                             <span class="text-danger"></span>
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label">MyAnimeList</label>
-                            <input class="form-control" />
+                        <div class="col-md-12">
+                            <label class="form-label">Location</label>
+                            <input class="form-control" type="text" />
                             <span class="text-danger"></span>
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Type</label>
-                            <select class="form-select">
-                                <option hidden value="">Select</option>
-                            </select>
-                            <span class="text-danger"></span>
-                        </div>
+
                         <div class="col-12">
-                            <label class="form-label">Description</label>
-                            <input class="form-control" />
+                            <label class="form-label">Price</label>
+                            <input class="form-control" type="number" />
                             <span class="text-danger"></span>
                         </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Aired</label>
-                            <input type="date" class="form-control" />
+
+                        <div class="col-md-12">
+                            <label class="form-label">Day - Night</label>
+                            <input type="text" class="form-control" />
                             <span class="text-danger"></span>
                         </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Duration</label>
-                            <input type="number" class="form-control" />
-                            <span class="text-danger"></span>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Resolution</label>
-                            <input type="number" class="form-control" />
-                            <span class="text-danger"></span>
-                        </div>
+
                         <div class="col-md-12">
                             <label class="form-label">Thumbnail</label>
                             <input type="file" class="form-control" />
                             <span class="text-danger"></span>
                         </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Type</label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                                <option value="Domestic">Domestic</option>
+                                <option value="International">International</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="royalbutton col-md-12">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        @* Add Activities *@
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Activities</h5>
+
+                    <form method="post" enctype="multipart/form-data" class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label">Details</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Time</label>
+                            <input class="form-control" type="time" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Location</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Activity</label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                                <option value="">Surfing</option>
+                                <option value="">Chilling</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Thumbnail</label>
+                            <input type="file" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Destination Type </label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                                <option value="">Domestic</option>
+                                <option value="">International</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
@@ -152,61 +210,333 @@
             </div>
         </div>
 
+
+        @* Add Places *@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add Anime</h5>
+                    <h5 class="card-title">Add Places</h5>
 
                     <form method="post" enctype="multipart/form-data" class="row g-3">
                         <div class="col-md-12">
-                            <label class="form-label">Name</label>
-                            <input class="form-control" />
+                            <label class="form-label">Place Details</label>
+                            <input class="form-control" type="text" />
                             <span class="text-danger"></span>
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label">MyAnimeList</label>
-                            <input class="form-control" />
+
+                        <div class="col-md-12">
+                            <label class="form-label">Time</label>
+                            <input class="form-control" type="time" />
                             <span class="text-danger"></span>
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Type</label>
-                            <select class="form-select">
-                                <option hidden value="">Select</option>
-                            </select>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Location</label>
+                            <input class="form-control" type="text" />
                             <span class="text-danger"></span>
                         </div>
-                        <div class="col-12">
-                            <label class="form-label">Description</label>
-                            <input class="form-control" />
-                            <span class="text-danger"></span>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Aired</label>
-                            <input type="date" class="form-control" />
-                            <span class="text-danger"></span>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Duration</label>
-                            <input type="number" class="form-control" />
-                            <span class="text-danger"></span>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Resolution</label>
-                            <input type="number" class="form-control" />
-                            <span class="text-danger"></span>
-                        </div>
+
                         <div class="col-md-12">
                             <label class="form-label">Thumbnail</label>
                             <input type="file" class="form-control" />
                             <span class="text-danger"></span>
                         </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Destination Type</label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                                <option value="Domestic">Domestic</option>
+                                <option value="International">International</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="royalbutton col-md-12">Submit</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+
+
+        @* Add Foods *@
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Foods</h5>
+
+                    <form method="post" enctype="multipart/form-data" class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label">Food Details</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Restaurant Location</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Thumbnail</label>
+                            <input type="file" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Destination Type </label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                                <option value="">Domestic</option>
+                                <option value="">International</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="royalbutton col-md-12">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        @* Add Tour Details *@
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Tour Details</h5>
+
+                    <form method="post" enctype="multipart/form-data" class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label">Title</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Day</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Pickup Point</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Overview</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Image 1</label>
+                            <input type="file" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Image 2</label>
+                            <input type="file" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Image 3</label>
+                            <input type="file" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Image 4</label>
+                            <input type="file" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Destination Type</label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                                <option value="Domestic">Domestic</option>
+                                <option value="International">International</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="royalbutton col-md-12">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        @* Add Itinerary *@
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Itinerary </h5>
+
+                    <form method="post" enctype="multipart/form-data" class="row g-3">
+
+                        <div class="col-md-6">
+                            <label class="form-label">Package Name</label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                                <option value="">Goa </option>
+                                <option value="">Ooty</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Day 1</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Day 2</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Day 3</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Day 4</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Day 5</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Day 6</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Day 7</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="royalbutton col-md-12">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        @* Add Festival Packages *@
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Festival Packages </h5>
+
+                    <form method="post" enctype="multipart/form-data" class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label">Festival Name</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Location</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Price</label>
+                            <input class="form-control" type="number" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Day - Night</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div> 
+                        
+                        <div class="col-md-12">
+                            <label class="form-label">Thumbnail</label>
+                            <input type="file" class="form-control" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Destination Type</label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                                <option value="Domestic">Domestic</option>
+                                <option value="International">International</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="royalbutton col-md-12">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        @* Add All Activity *@
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add All Activity</h5>
+
+                    <form method="post" enctype="multipart/form-data" class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label">Name</label>
+                            <input class="form-control" type="text" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Destination Type</label>
+                            <select class="form-select">
+                                <option hidden value="">Select</option>
+                                <option value="Domestic">Domestic</option>
+                                <option value="International">International</option>
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="royalbutton col-md-12">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 </section>
 
