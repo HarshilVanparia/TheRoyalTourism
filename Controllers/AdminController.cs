@@ -19,6 +19,14 @@ namespace TheRoyalTourism.Controllers
         public IActionResult DataTables()
         {
             return View();
+        } 
+        public IActionResult Packages()
+        {
+            return View();
+        } 
+        public IActionResult Details()
+        {
+            return View();
         }
     }
 }

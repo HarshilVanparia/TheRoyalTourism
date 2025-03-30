@@ -69,7 +69,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="@Url.Action("DataTables", "Admin")">
+                <a class="nav-link @(ViewData["ActivePage"] == "DataTables" ? "active" : "")" href="@Url.Action("DataTables", "Admin")">
                     <i class="bi bi-layout-text-window-reverse"></i> <span>Data Tables</span>
                 </a>
             </li>

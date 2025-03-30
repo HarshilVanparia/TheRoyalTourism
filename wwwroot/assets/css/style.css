@@ -15,8 +15,6 @@
     color: #05073D !important;
 }
 
-
-
 .royalbutton {
     background-color: #8C387C;
     padding-inline: 18px;
@@ -31,6 +29,8 @@
     .royalbutton:hover {
         background-color: #742f66;
     }
+
+
 
 body {
     font-family: "Open Sans", sans-serif;
@@ -677,6 +677,7 @@ h6 {
         margin: 10px 0 5px 15px;
     }
 
+  
     .sidebar-nav .nav-link {
         display: flex;
         align-items: center;
@@ -699,12 +700,12 @@ h6 {
 
 
         .sidebar-nav .nav-link:hover {
-            color: #4154f1;
-            background: #f6f9ff;
+            color: white;
+            background-color: #8C387C !important;
         }
 
             .sidebar-nav .nav-link:hover i {
-                color: #4154f1;
+                color: white;
             }
 
         .sidebar-nav .nav-link .bi-chevron-down {
