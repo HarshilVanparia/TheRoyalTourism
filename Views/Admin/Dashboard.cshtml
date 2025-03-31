@@ -1,6 +1,12 @@
-﻿@{
+﻿@inject IHttpContextAccessor HttpContextAccessor
+@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewData["Title"] = "Dashboard";
+    
+    if (HttpContextAccessor.HttpContext.Session.GetString("UserRole") != "admin")
+    {
+        Context.Response.Redirect("/Register/LoginPage");
+    }
 }
 
 <div class="pagetitle">
@@ -178,3 +184,4 @@
     </div>
 
 </section>
+

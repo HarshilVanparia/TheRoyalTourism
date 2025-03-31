@@ -36,16 +36,16 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link nav-profile d-flex align-items-center mx-4" href="#" data-bs-toggle="dropdown">
                         <img class="rounded-circle" style="width: 2.6rem;" src="~/Images/logo.svg">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">UserName</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">@Context.Session.GetString("UserName")</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="@Url.Action("Profile", "Admin")">
+                            <a class="dropdown-item d-flex align-items-center" href="@Url.Action("AdminProfile", "Admin")">
                                 <i class="bi bi-person"></i> My Profile
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="@Url.Action("Logout", "Account")">
+                            <a class="dropdown-item d-flex align-items-center" href="@Url.Action("Logout", "Register")">
                                 <i class="bi bi-box-arrow-right"></i> Sign Out
                             </a>
                         </li>
@@ -69,7 +69,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @(ViewData["ActivePage"] == "DataTables" ? "active" : "")" href="@Url.Action("DataTables", "Admin")">
+                <a class="nav-link " href="@Url.Action("DataTables", "Admin")">
                     <i class="bi bi-layout-text-window-reverse"></i> <span>Data Tables</span>
                 </a>
             </li>
@@ -80,7 +80,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link @(ViewData["ActivePage"] == "Details" ? "active" : "")" href="@Url.Action("Details", "Admin")">
+                <a class="nav-link " href="@Url.Action("Details", "Admin")">
                     <i class="bi bi-layout-text-window-reverse"></i> <span>Details</span>
                 </a>
             </li>
@@ -90,7 +90,9 @@
     <!-- End Sidebar -->
     <!-- Main Content -->
     <main id="main" class="main">
+
         @RenderBody()
+
     </main>
 
     <!-- Back to Top -->

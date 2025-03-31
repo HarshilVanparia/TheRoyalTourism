@@ -10,21 +10,29 @@ namespace TheRoyalTourism.Controllers
         }
         public IActionResult Dashboard()
         {
+            if (HttpContext.Session.GetString("UserRole") != "admin")
+            {
+                return RedirectToAction("LoginPage", "Register");
+            }
             return View();
-        } 
+        }
         public IActionResult Forms()
         {
             return View();
-        }  
+        }
         public IActionResult DataTables()
         {
             return View();
-        } 
+        }
         public IActionResult Packages()
         {
             return View();
-        } 
+        }
         public IActionResult Details()
+        {
+            return View();
+        } 
+        public IActionResult AdminProfile()
         {
             return View();
         }

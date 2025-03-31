@@ -1,7 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Domestic Destinations";
-}
 
+    if (Context.Session.GetString("UserEmail") == null)
+    {
+        Context.Response.Redirect("/Register/LoginPage");
+    }
+}
 @* banner *@
 <div class="prod_title" style="background-image: url('/Images/domestic_banner.png');background-size:cover; background-attachment:fixed;">
     <div class="container">

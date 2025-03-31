@@ -15,6 +15,13 @@
 }
 /* custom scrollbar start */
 
+.main-text {
+    color: #8C387C !important;
+}
+
+.normal-text {
+    color: #05073D !important;
+}
 
 ::-webkit-scrollbar {
     width: 12px;

@@ -1,4 +1,4 @@
-namespace TheRoyalTourism
+﻿namespace TheRoyalTourism
 {
     public class Program
     {
@@ -8,6 +8,16 @@ namespace TheRoyalTourism
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddHttpContextAccessor(); // Allows session in views
+
+            // ✅ Session Configuration
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(60); // Session timeout
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
             var app = builder.Build();
 
@@ -19,11 +29,10 @@ namespace TheRoyalTourism
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+
             app.UseStaticFiles();
-
             app.UseRouting();
-
+            app.UseSession();   // ✅ Move this after routing
             app.UseAuthorization();
 
             app.MapControllerRoute(

@@ -21,6 +21,10 @@
     }
 
 </style>
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
 
 @* login form *@
 <div class="py-5" style="background-image: url('/Images/login_banner.png');background-size:cover; background-attachment:fixed;">
@@ -33,22 +37,20 @@
                     </h2>
                 </div>
                 <h2 class="text-center main-text">Let's Get You Going!</h2>
-                <form class="pt-3 " method="POST">
-                    <input type="hidden" name="_token" value="lTpV9r5Mkl1RXCz4b61qqD4v29RUedMMVoR7bZzH" autocomplete="off">
+               
+                <form class="pt-3 " method="post" asp-controller="Register" asp-action="Login">
                     <div class="row">
                         <div class="col-xl-12 col-md-6 col-lg-6 mb-3">
-                            <label class="form-label">Email Address*</label>
-                            <input type="email" name="name" class="form-control" placeholder="jenterprisies@gmail.com" value="" required="">
-                            <div class="text-danger text-sm"></div>
+                            <label class="form-label">Email Address</label>
+                            <input type="email" name="email" class="form-control" placeholder="your@email.com" required>
                         </div>
                         <div class="col-xl-12 col-md-6 col-lg-6 mb-3">
-                            <label class="form-label">Password*</label>
-                            <input type="password" name="phone_number" class="form-control" placeholder="********" value="" required="">
-                            <div class="text-danger text-sm"></div>
+                            <label class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="********" required>
                         </div>
                         <div class="col-xl-12 mt-4 ">
                             <div class="btn-box text-center text-md-center ">
-                                <button type="submit" class="btn btn-reg col-xl-12" asp-controller="Admin" asp-action="Dashboard">
+                                <button type="submit" class="btn btn-reg col-xl-12">
                                     Login &nbsp;
                                     <i class="bi bi-arrow-up-right "></i>
                                 </button>

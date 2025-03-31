@@ -17,6 +17,8 @@
 
     <link rel="stylesheet" href="~/css/site.css" />
 
+    @* for popup *@
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body>
@@ -61,9 +63,24 @@
                             <a class="nav-link " asp-area="" asp-controller="Destination" asp-action="AnyFestival">Any Festival</a>
                         </li>
 
-                        <li class="nav-item royalbutton">
-                            <a class="nav-link" style="color:white !important;" asp-area="" asp-controller="Register" asp-action="LoginPage">Sign in</a>
-                        </li>
+                      
+                        @if (Context.Session.GetString("UserName") != null)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                                    <i class="bi bi-person-circle"></i> @Context.Session.GetString("UserName")
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="@Url.Action("Logout", "Register")"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item royalbutton">
+                                <a class="nav-link" style="color:white !important;" href="@Url.Action("LoginPage", "Register")"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+                            </li>
+                        }
 
                     </ul>
                 </div>
