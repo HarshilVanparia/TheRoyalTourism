@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TheRoyalTourism.Models.User
+@{
     ViewData["Title"] = "RegisterPage";
 }
 <style>
@@ -31,28 +32,33 @@
                     <h2 class="text-center" style="font-family: 'Freestyle Script';font-weight:500;">Your Adventure Awaits </h2>
                 </div>
                 <h2 class="text-center main-text">Join Us Today!</h2>
+                
                 <form class="pt-3" method="post" asp-controller="Register" asp-action="RegisterUser">
                     <div class="row">
                         <div class="col-xl-6 col-md-6 col-lg-6 mb-3">
                             <label class="form-label">Full Name</label>
-                            <input type="text" name="fullname" class="form-control" placeholder="Full Name" required>
+                            <input asp-for="FullName" class="form-control" placeholder="Full Name" >
+                            <span class="text-danger" asp-validation-for="FullName"></span>
                         </div>
                         <div class="col-xl-6 col-md-6 col-lg-6 mb-3">
                             <label class="form-label">Phone Number</label>
-                            <input type="number" name="pnumber" class="form-control" placeholder="1236547890" required>
+                            <input asp-for="PNumber" class="form-control" placeholder="1236547890" >
+                            <span class="text-danger" asp-validation-for="PNumber"></span>
                         </div>
                         <div class="col-xl-6 col-md-6 col-lg-6 mb-3">
                             <label class="form-label">Email Address</label>
-                            <input type="email" name="email" class="form-control" placeholder="example@gmail.com" required>
+                            <input asp-for="Email" class="form-control" placeholder="example@gmail.com" >
+                            <span class="text-danger" asp-validation-for="Email"></span>
                         </div>
                         <div class="col-xl-6 col-md-6 col-lg-6 mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="********" required>
+                            <input asp-for="Password" class="form-control" placeholder="********" >
+                            <span class="text-danger" asp-validation-for="Password"></span>
                         </div>
                         <div class="col-xl-12 mt-4">
                             <div class="btn-box text-center">
-                                <button type="submit" class="btn btn-reg col-xl-12">
-                                    Register &nbsp; <i class="bi bi-arrow-up-right"></i>
+                                <button type="submit" class="btn btn-reg col-xl-12 gap-1">
+                                    Register <i class="bi bi-arrow-up-right"></i>
                                 </button>
                             </div>
                         </div>
@@ -63,6 +69,11 @@
                         </div>
                     </div>
                 </form>
+
+                @section Scripts {
+                    <partial name="_ValidationScriptsPartial" />
+                }
+
                 @if (TempData["msg"] != null)
                 {
                     <script>

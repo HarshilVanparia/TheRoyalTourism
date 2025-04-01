@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TheRoyalTourism.Models.Login
+@{
     ViewData["Title"] = "LoginPage";
 }
 <style>
@@ -21,10 +22,10 @@
     }
 
 </style>
-@if (ViewBag.ErrorMessage != null)
-{
-    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
-}
+@* @if (ViewBag.ErrorMessage != null) *@
+@* { *@
+@*     <div class="alert alert-danger">@ViewBag.ErrorMessage</div> *@
+@* } *@
 
 @* login form *@
 <div class="py-5" style="background-image: url('/Images/login_banner.png');background-size:cover; background-attachment:fixed;">
@@ -42,16 +43,18 @@
                     <div class="row">
                         <div class="col-xl-12 col-md-6 col-lg-6 mb-3">
                             <label class="form-label">Email Address</label>
-                            <input type="email" name="email" class="form-control" placeholder="your@email.com" required>
+                            <input asp-for="Email" class="form-control" placeholder="your@email.com">
+                            <span class="text-danger" asp-validation-for="Email"></span>
                         </div>
                         <div class="col-xl-12 col-md-6 col-lg-6 mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="********" required>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="********">
+                            <span class="text-danger" asp-validation-for="Password"></span>
                         </div>
                         <div class="col-xl-12 mt-4 ">
                             <div class="btn-box text-center text-md-center ">
-                                <button type="submit" class="btn btn-reg col-xl-12">
-                                    Login &nbsp;
+                                <button type="submit" class="btn btn-reg col-xl-12 gap-1">
+                                    Login 
                                     <i class="bi bi-arrow-up-right "></i>
                                 </button>
                             </div>
@@ -63,6 +66,9 @@
                         </div>
                     </div>
                 </form>
+                @section Scripts {
+                    <partial name="_ValidationScriptsPartial" />
+                }
             </div>
         </section>
     </div>

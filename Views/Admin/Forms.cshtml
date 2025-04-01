@@ -1,4 +1,6 @@
-﻿@{
+﻿@model TheRoyalTourism.Models.AllModels
+
+@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewData["Title"] = "Forms";
 }
@@ -25,39 +27,43 @@
                 <div class="card-body">
                     <h5 class="card-title">Add User</h5>
 
-                    <form method="post" enctype="multipart/form-data" class="row g-3">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["Success"]</div>
+                    }
+                    <form method="post" asp-controller="Admin" asp-action="AddUser" class="row g-3">
                         <div class="col-md-12">
                             <label class="form-label">Full Name</label>
-                            <input class="form-control" type="text" />
-                            <span class="text-danger"></span>
+                            <input class="form-control" asp-for="User.FullName" />
+                            <span class="text-danger" asp-validation-for="User.FullName"></span>
                         </div>
 
                         <div class="col-md-12">
                             <label class="form-label">Email</label>
-                            <input class="form-control" type="text" />
-                            <span class="text-danger"></span>
+                            <input class="form-control" asp-for="User.Email" />
+                            <span class="text-danger" asp-validation-for="User.Email"></span>
                         </div>
 
                         <div class="col-md-12">
-                            <label class="form-label">Number</label>
-                            <input class="form-control" type="number" />
-                            <span class="text-danger"></span>
+                            <label class="form-label">Phone Number</label>
+                            <input class="form-control" asp-for="User.PNumber" />
+                            <span class="text-danger" asp-validation-for="User.PNumber"></span>
                         </div>
 
                         <div class="col-md-12">
                             <label class="form-label">Password</label>
-                            <input class="form-control" type="password" />
-                            <span class="text-danger"></span>
+                            <input class="form-control" asp-for="User.Password" type="password" />
+                            <span class="text-danger" asp-validation-for="User.Password"></span>
                         </div>
 
                         <div class=" text-center">
                             <button type="submit" class="royalbutton col-md-12">Submit</button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
-
 
         @* Add Destinations *@
         <div class="col-md-6">
@@ -65,33 +71,39 @@
                 <div class="card-body">
                     <h5 class="card-title">Add Destinations </h5>
 
-                    <form method="post" enctype="multipart/form-data" class="row g-3">
+                    @if (TempData["msg"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["msg"]</div>
+                    }
+                    <form enctype="multipart/form-data" method="post" asp-controller="Admin" asp-action="AddDestinations" class="row g-3">
                         <div class="col-md-12">
                             <label class="form-label">Name</label>
-                            <input class="form-control" type="text" />
-                            <span class="text-danger"></span>
+                            <input asp-for="Destination.DName" class="form-control" type="text" />
+                            <span class="text-danger" asp-validation-for="Destination.DName"></span>
                         </div>
 
                         <div class="col-md-12">
                             <label class="form-label">Thumbnail</label>
-                            <input type="file" class="form-control" />
-                            <span class="text-danger"></span>
+                            <input type="file" name="DestinationImage" class="form-control" />
+                            <span class="text-danger" asp-validation-for="Destination.DImg"></span>
                         </div>
 
                         <div class="col-md-12">
                             <label class="form-label">Destination Type</label>
-                            <select class="form-select">
+                            <select asp-for="Destination.DType" class="form-select">
                                 <option hidden value="">Select</option>
                                 <option value="Domestic">Domestic</option>
                                 <option value="International">International</option>
                             </select>
-                            <span class="text-danger"></span>
+                            <span class="text-danger" asp-validation-for="Destination.DType"></span>
                         </div>
 
-                        <div class=" text-center">
+                        <div class="text-center">
                             <button type="submit" class="royalbutton col-md-12">Submit</button>
                         </div>
                     </form>
+
+
                 </div>
             </div>
         </div>
@@ -477,8 +489,8 @@
                             <label class="form-label">Day - Night</label>
                             <input class="form-control" type="text" />
                             <span class="text-danger"></span>
-                        </div> 
-                        
+                        </div>
+
                         <div class="col-md-12">
                             <label class="form-label">Thumbnail</label>
                             <input type="file" class="form-control" />
@@ -541,7 +553,9 @@
             </div>
         </div>
 
-
+        @section Scripts {
+            <partial name="_ValidationScriptsPartial" />
+        }
 
     </div>
 </section>

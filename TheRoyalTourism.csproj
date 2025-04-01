@@ -9,12 +9,14 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
+    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="ServiceStack.Text" Version="8.6.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
   </ItemGroup>
 

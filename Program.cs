@@ -1,4 +1,6 @@
-﻿namespace TheRoyalTourism
+﻿using System.IO;
+
+namespace TheRoyalTourism
 {
     public class Program
     {
@@ -18,6 +20,15 @@
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+
+            // ✅ Fix WebRootPath Error
+            string wwwRootPath = builder.Environment.WebRootPath;
+            string uploadsPath = Path.Combine(wwwRootPath, "uploads");
+
+            if (!Directory.Exists(uploadsPath))
+            {
+                Directory.CreateDirectory(uploadsPath);
+            }
 
             var app = builder.Build();
 

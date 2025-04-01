@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Reflection;
+using TheRoyalTourism.Models;
 
 namespace TheRoyalTourism.Controllers
 {
@@ -21,34 +23,49 @@ namespace TheRoyalTourism.Controllers
         }
 
         [HttpPost]
-        public IActionResult RegisterUser(string fullname, string email, string pnumber, string password)
+        public IActionResult RegisterUser(User user)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("RegisterPage", user); // Return form with validation errors
+            }
+
             string connectionString = _configuration.GetConnectionString("DefaultConnection");
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "INSERT INTO users (fullname, email, pnumber, password, role) VALUES (@fullname, @email, @pnumber, @password, 'user')";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@fullname", fullname);
-                    cmd.Parameters.AddWithValue("@email", email);
-                    cmd.Parameters.AddWithValue("@pnumber", pnumber);
-                    cmd.Parameters.AddWithValue("@password", password);
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
+                // Check if email already exists
+                string checkQuery = "SELECT COUNT(*) FROM users WHERE email = @Email";
+                using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
+                {
+                    checkCmd.Parameters.AddWithValue("@Email", user.Email);
+                    int count = (int)checkCmd.ExecuteScalar();
+
+                    if (count > 0)
                     {
-                        TempData["msg"] = "Registration successful! Please log in.";
-                        return RedirectToAction("RegisterPage");
-                    }
-                    else
-                    {
-                        TempData["error"] = "Registration failed. Try again.";
+                        TempData["msg"] = "Email already exists!";
                         return RedirectToAction("RegisterPage");
                     }
                 }
+
+                // Insert user into the database
+                string insertQuery = "INSERT INTO users (fullname, email, pnumber, password, role, status) VALUES (@FullName, @Email, @PNumber, @Password, 'user', @Status)";
+                using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@FullName", user.FullName);
+                    cmd.Parameters.AddWithValue("@Email", user.Email);
+                    cmd.Parameters.AddWithValue("@PNumber", user.PNumber);
+                    cmd.Parameters.AddWithValue("@Password", user.Password); // Consider hashing password
+                    cmd.Parameters.AddWithValue("@Status", "Active"); // Default status
+
+                    cmd.ExecuteNonQuery();
+                }
             }
+
+            TempData["msg"] = "Registration successful! Please log in.";
+            return RedirectToAction("RegisterPage");
         }
 
         public IActionResult LoginPage()
@@ -57,42 +74,69 @@ namespace TheRoyalTourism.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string email, string password)
+        public IActionResult Login(Login model)
         {
+            // Ensure model is valid before proceeding
+            if (!ModelState.IsValid)
+            {
+                return View("LoginPage", model);
+            }
+
             string connectionString = _configuration.GetConnectionString("DefaultConnection");
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT fullname, email, pnumber, role FROM users WHERE email = @email AND password = @password";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@password", password);
 
-                SqlDataReader reader = cmd.ExecuteReader();
+                string query = "SELECT fullname, email, pnumber, role, status FROM users WHERE email = @Email AND password = @Password";
 
-                if (reader.Read())
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    HttpContext.Session.SetString("UserName", reader["fullname"].ToString());
-                    HttpContext.Session.SetString("UserEmail", reader["email"].ToString());
-                    HttpContext.Session.SetString("Pnumber", reader["pnumber"].ToString());
-                    HttpContext.Session.SetString("UserRole", reader["role"].ToString());
+                    // Check if Email and Password are not null or empty
+                    if (string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
+                    {
+                        ViewBag.ErrorMessage = "Email and Password are required.";
+                        return View("LoginPage", model);
+                    }
 
-                    string role = reader["role"].ToString();
+                    // Add parameters properly
+                    cmd.Parameters.Add(new SqlParameter("@Email", System.Data.SqlDbType.NVarChar, 255) { Value = model.Email });
+                    cmd.Parameters.Add(new SqlParameter("@Password", System.Data.SqlDbType.NVarChar, 255) { Value = model.Password });
 
-                    if (role == "user")
-                        return RedirectToAction("Domestic", "Destination");
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    if (role == "admin")
-                        return RedirectToAction("Dashboard", "Admin");
+                    if (reader.Read())
+                    {
+                        string status = reader["status"].ToString();
+                        if (status != "Active")
+                        {
+                            ViewBag.ErrorMessage = "Your account is inactive. Please contact support.";
+                            return View("LoginPage", model);
+                        }
+
+                        HttpContext.Session.SetString("UserName", reader["fullname"].ToString());
+                        HttpContext.Session.SetString("UserEmail", reader["email"].ToString());
+                        HttpContext.Session.SetString("Pnumber", reader["pnumber"].ToString());
+                        HttpContext.Session.SetString("UserRole", reader["role"].ToString());
+
+                        string role = reader["role"].ToString();
+
+                        reader.Close(); // Close the reader before redirecting
+
+                        if (role == "user")
+                            return RedirectToAction("Domestic", "Destination");
+
+                        if (role == "admin")
+                            return RedirectToAction("Dashboard", "Admin");
+                    }
+
+                    ViewBag.ErrorMessage = "Invalid email or password.";
+                    return View("LoginPage", model);
                 }
-
-                ViewBag.ErrorMessage = "Invalid email or password.";
-                reader.Close();
-                conn.Close();
-                return View("LoginPage");
             }
         }
+
+
 
         public IActionResult Logout()
         {
