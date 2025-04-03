@@ -51,11 +51,11 @@ namespace TheRoyalTourism.Controllers
 
         // Form Data Inserting
         [HttpPost]
-        public IActionResult AddUser(User user)
+        public IActionResult AddUser(AllModels adduser)
         {
             if (!ModelState.IsValid)
             {
-                return View("Forms", user); // Return form with validation errors
+                return View("Forms", adduser); // Return form with validation errors
             }
 
             string connectionString = _configuration.GetConnectionString("DefaultConnection");
@@ -68,7 +68,7 @@ namespace TheRoyalTourism.Controllers
                 string checkQuery = "SELECT COUNT(*) FROM users WHERE email = @Email";
                 using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
                 {
-                    checkCmd.Parameters.AddWithValue("@Email", user.Email);
+                    checkCmd.Parameters.AddWithValue("@Email", adduser.User.Email);
                     int count = (int)checkCmd.ExecuteScalar();
 
                     if (count > 0)
@@ -79,15 +79,14 @@ namespace TheRoyalTourism.Controllers
                 }
 
                 // Insert user into the database
-                string insertQuery = "INSERT INTO users (fullname, email, pnumber, password, role, status) VALUES (@FullName, @Email, @PNumber, @Password,'user', @Status)";
+                string insertQuery = "INSERT INTO users (fullname, email, pnumber, password, role) VALUES (@FullName, @Email, @PNumber, @Password,'user')";
                 using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                 {
-                    cmd.Parameters.AddWithValue("@FullName", user.FullName);
-                    cmd.Parameters.AddWithValue("@Email", user.Email);
-                    cmd.Parameters.AddWithValue("@PNumber", user.PNumber);
-                    cmd.Parameters.AddWithValue("@Password", user.Password); // Consider hashing password
+                    cmd.Parameters.AddWithValue("@FullName", adduser.User.FullName);
+                    cmd.Parameters.AddWithValue("@Email", adduser.User.Email);
+                    cmd.Parameters.AddWithValue("@PNumber", adduser.User.PNumber);
+                    cmd.Parameters.AddWithValue("@Password", adduser.User.Password); // Consider hashing password
                     cmd.Parameters.AddWithValue("@Role", "user");
-                    cmd.Parameters.AddWithValue("@Status", "Active"); // Default status
 
                     cmd.ExecuteNonQuery();
                 }

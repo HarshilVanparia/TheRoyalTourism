@@ -22,6 +22,5 @@ namespace TheRoyalTourism.Models
         public string Password { get; set; }
 
         public string Role { get; set; } = "user"; // Default role is 'user'
-        public string Status { get; set; } = "Active"; // Default status is 'Active'
     }
 }

@@ -51,14 +51,13 @@ namespace TheRoyalTourism.Controllers
                 }
 
                 // Insert user into the database
-                string insertQuery = "INSERT INTO users (fullname, email, pnumber, password, role, status) VALUES (@FullName, @Email, @PNumber, @Password, 'user', @Status)";
+                string insertQuery = "INSERT INTO users (fullname, email, pnumber, password, role) VALUES (@FullName, @Email, @PNumber, @Password, 'user')";
                 using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                 {
                     cmd.Parameters.AddWithValue("@FullName", user.FullName);
                     cmd.Parameters.AddWithValue("@Email", user.Email);
                     cmd.Parameters.AddWithValue("@PNumber", user.PNumber);
                     cmd.Parameters.AddWithValue("@Password", user.Password); // Consider hashing password
-                    cmd.Parameters.AddWithValue("@Status", "Active"); // Default status
 
                     cmd.ExecuteNonQuery();
                 }
@@ -88,7 +87,7 @@ namespace TheRoyalTourism.Controllers
             {
                 conn.Open();
 
-                string query = "SELECT fullname, email, pnumber, role, status FROM users WHERE email = @Email AND password = @Password";
+                string query = "SELECT fullname, email, pnumber, role FROM users WHERE email = @Email AND password = @Password";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -107,13 +106,6 @@ namespace TheRoyalTourism.Controllers
 
                     if (reader.Read())
                     {
-                        string status = reader["status"].ToString();
-                        if (status != "Active")
-                        {
-                            ViewBag.ErrorMessage = "Your account is inactive. Please contact support.";
-                            return View("LoginPage", model);
-                        }
-
                         HttpContext.Session.SetString("UserName", reader["fullname"].ToString());
                         HttpContext.Session.SetString("UserEmail", reader["email"].ToString());
                         HttpContext.Session.SetString("Pnumber", reader["pnumber"].ToString());
