@@ -9,6 +9,7 @@ using Microsoft.CodeAnalysis.Scripting;
 using System.Reflection;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Azure.Documents;
 
 namespace TheRoyalTourism.Controllers
 {
@@ -18,19 +19,154 @@ namespace TheRoyalTourism.Controllers
         {
             return View();
         }
+
+        private readonly string _connectionString;
+
+        public AdminController(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
+        }
+
+
         public IActionResult Dashboard()
         {
             if (HttpContext.Session.GetString("UserRole") != "admin")
             {
                 return RedirectToAction("LoginPage", "Register");
             }
-            return View();
+            var model = new DashboardViewModel();
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+
+                model.TotalDestinations = GetCount(conn, "SELECT COUNT(*) FROM destinations");
+                model.TotalDomesticDestinations = GetCount(conn, "SELECT COUNT(*) FROM destinations WHERE dtype= 'Domestic'");
+                model.TotalInternationalDestinations = GetCount(conn, "SELECT COUNT(*) FROM destinations WHERE dtype= 'International'");
+                model.TotalPackages = GetCount(conn, "SELECT COUNT(*) FROM packages");
+                model.TotalDomesticPackages = GetCount(conn, "SELECT COUNT(*) FROM packages WHERE package_type = 'regular'");
+                model.TotalInternationalPackages = GetCount(conn, "SELECT COUNT(*) FROM packages WHERE package_type = 'festival'");
+                model.TotalUsers = GetCount(conn, "SELECT COUNT(*) FROM users");
+                model.TotalTours = GetCount(conn, "SELECT COUNT(*) FROM tourdetails");
+                model.TotalItineraries = GetCount(conn, "SELECT COUNT(*) FROM itineraries");
+                model.TotalActivities = GetCount(conn, "SELECT COUNT(*) FROM activities");
+                model.TotalFoods = GetCount(conn, "SELECT COUNT(*) FROM foods");
+                model.TotalPlaces = GetCount(conn, "SELECT COUNT(*) FROM places");
+            }
+
+            return View(model);
         }
+        private int GetCount(SqlConnection conn, string query)
+        {
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                return (int)cmd.ExecuteScalar();
+            }
+        }
+
 
         public IActionResult DataTables()
         {
+            //var model = new AdminDataTablesViewModel
+            //{
+            //    Users = new List<UserModel>(),
+            //    Itineraries = new List<ItineraryModel>(),
+            //    Activities = new List<ActivityModel>(),
+            //    Foods = new List<FoodModel>(),
+            //    Destinations = new List<DestinationModel>()
+            //};
+
+            //using (SqlConnection conn = new SqlConnection(_connectionString))
+            //{
+            //    conn.Open();
+
+            //    // Users
+            //    var cmd = new SqlCommand("SELECT * FROM users", conn);
+            //    var reader = cmd.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        model.Users.Add(new UserModel
+            //        {
+            //            Fullname = reader["uname"].ToString(),
+            //            Email = reader["uemail"].ToString(),
+            //            Pnumber = reader["unumber"].ToString(),
+            //            Password = reader["upassword"].ToString(),
+            //        });
+            //    }
+            //    reader.Close();
+
+            //    // Destinations
+            //    cmd = new SqlCommand("SELECT * FROM destinations", conn);
+            //    reader = cmd.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        model.Destinations.Add(new DestinationModel
+            //        {
+            //            Did = (int)reader["did"],
+            //            Dname = reader["dname"].ToString(),
+            //            Dimg = reader["dimg"].ToString(),
+            //            Dtype = reader["dtype"].ToString()
+            //        });
+            //    }
+            //    reader.Close();
+
+            //    // Foods
+            //    cmd = new SqlCommand("SELECT f.*, d.dname FROM foods f JOIN destinations d ON f.did = d.did", conn);
+            //    reader = cmd.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        model.Foods.Add(new FoodModel
+            //        {
+            //            Fdetail = reader["fdetail"].ToString(),
+            //            Flocation = reader["flocation"].ToString(),
+            //            Fimg = reader["fimg"].ToString(),
+            //            Dname = reader["dname"].ToString()
+            //        });
+            //    }
+            //    reader.Close();
+
+            //    // Activities
+            //    cmd = new SqlCommand("SELECT a.*, d.dname FROM activities a JOIN destinations d ON a.did = d.did", conn);
+            //    reader = cmd.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        model.Activities.Add(new ActivityModel
+            //        {
+            //            Adetail = reader["adetail"].ToString(),
+            //            Atime = reader["atime"].ToString(),
+            //            Alocation = reader["alocation"].ToString(),
+            //            Aactivity = reader["aactivity"].ToString(),
+            //            Aimg = reader["aimg"].ToString(),
+            //            Dname = reader["dname"].ToString()
+            //        });
+            //    }
+            //    reader.Close();
+
+            //    // Itineraries
+            //    cmd = new SqlCommand("SELECT i.*, t.tname FROM itineraries i JOIN tourdetails t ON i.tid = t.tid", conn);
+            //    reader = cmd.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        model.Itineraries.Add(new ItineraryModel
+            //        {
+            //            Iday1 = reader["iday1"].ToString(),
+            //            Iday2 = reader["iday2"].ToString(),
+            //            Iday3 = reader["iday3"].ToString(),
+            //            Iday4 = reader["iday4"].ToString(),
+            //            Iday5 = reader["iday5"].ToString(),
+            //            Iday6 = reader["iday6"].ToString(),
+            //            Iday7 = reader["iday7"].ToString()
+            //        });
+            //    }
+            //    reader.Close();
+
+              
+            //}
+
+            //return View(model);
             return View();
         }
+
         public IActionResult Packages()
         {
             return View();
@@ -46,12 +182,6 @@ namespace TheRoyalTourism.Controllers
 
 
 
-        private readonly string _connectionString;
-
-        public AdminController(IConfiguration configuration)
-        {
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
-        }
 
 
         public IActionResult Forms()

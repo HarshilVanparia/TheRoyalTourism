@@ -14,5 +14,8 @@ namespace TheRoyalTourism.Models
 
         [Required(ErrorMessage = "Destination is required")]
         public int Did { get; set; }
+
+        //public string Dname { get; set; } // For join with destination name
+        //public IFormFile AimgFile { get; set; }
     }
 }
