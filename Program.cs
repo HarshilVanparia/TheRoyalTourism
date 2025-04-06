@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Microsoft.AspNetCore.Http.Features;
+using System.IO;
 
 namespace TheRoyalTourism
 {
@@ -20,6 +21,10 @@ namespace TheRoyalTourism
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+            //builder.Services.Configure<FormOptions>(options =>
+            //{
+            //    options.MultipartBodyLengthLimit = 104857600; // 100MB
+            //});
 
             // ✅ Fix WebRootPath Error
             string wwwRootPath = builder.Environment.WebRootPath;

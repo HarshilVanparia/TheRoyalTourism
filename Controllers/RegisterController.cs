@@ -23,7 +23,7 @@ namespace TheRoyalTourism.Controllers
         }
 
         [HttpPost]
-        public IActionResult RegisterUser(User user)
+        public IActionResult RegisterUser(UserModel user)
         {
             if (!ModelState.IsValid)
             {
@@ -54,9 +54,9 @@ namespace TheRoyalTourism.Controllers
                 string insertQuery = "INSERT INTO users (fullname, email, pnumber, password, role) VALUES (@FullName, @Email, @PNumber, @Password, 'user')";
                 using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                 {
-                    cmd.Parameters.AddWithValue("@FullName", user.FullName);
+                    cmd.Parameters.AddWithValue("@FullName", user.Fullname);
                     cmd.Parameters.AddWithValue("@Email", user.Email);
-                    cmd.Parameters.AddWithValue("@PNumber", user.PNumber);
+                    cmd.Parameters.AddWithValue("@PNumber", user.Pnumber);
                     cmd.Parameters.AddWithValue("@Password", user.Password); // Consider hashing password
 
                     cmd.ExecuteNonQuery();
