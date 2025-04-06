@@ -277,41 +277,37 @@
                 <div class="card-body">
                     <h5 class="card-title">Add Foods</h5>
 
-                    <form method="post" asp-controller="Admin" asp-action="AddFoods" enctype="multipart/form-data" class="row g-3">
+                    <form method="post" asp-controller="Admin" asp-action="AddFood" enctype="multipart/form-data" class="row g-3">
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="FoodsModel.Fdetail">Food Details</label>
-                            <input class="form-control" type="text" asp-for="FoodsModel.Fdetail" />
-                            <span class="text-danger" asp-validation-for="FoodsModel.Fdetail"></span>
+                            <label class="form-label" >Food Details</label>
+                            <input class="form-control" type="text" asp-for="FoodModel.Fdetail" />
+                            <span class="text-danger" asp-validation-for="FoodModel.Fdetail"></span>
                         </div>
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="FoodsModel.Flocation">Restaurant Location</label>
-                            <input class="form-control" type="text" asp-for="FoodsModel.Flocation" />
-                            <span class="text-danger" asp-validation-for="FoodsModel.Flocation"></span>
+                            <label class="form-label" >Restaurant Location</label>
+                            <input class="form-control" type="text" asp-for="FoodModel.Flocation" />
+                            <span class="text-danger" asp-validation-for="FoodModel.Flocation"></span>
                         </div>
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="FoodsModel.Fimg">Thumbnail</label>
-                            <input type="file" class="form-control" name="FoodImage" />
-                            <span class="text-danger" asp-validation-for="FoodsModel.Fimg"></span>
+                            <label class="form-label" >Thumbnail</label>
+                            <input type="file" class="form-control" asp-for="FoodModel.Fimg" />
+                            <span class="text-danger" asp-validation-for="FoodModel.Fimg"></span>
                         </div>
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="FoodsModel.Did">Destination</label>
-                            <select class="form-select" asp-for="FoodsModel.Did">
-                                <option hidden value="">Select</option>
-                                @* @if (Model?.FoodsModel?.DestinationList != null) *@
-                                @* { *@
-                                @*     @foreach (var destination in Model.FoodsModel.DestinationList) *@
-                                @*     { *@
-                                @*         <option value="@destination.Did">@destination.Dname</option> *@
-                                @*     } *@
-                                @* } *@
+                            <label class="form-label" >Destination</label>
+                            <select class="form-select" asp-for="FoodModel.Did" asp-items="@(new SelectList(Model.DestinationList, "Did", "Dname"))">
+                                <option value="">-- Select Destination --</option>
                             </select>
-                            <span class="text-danger" asp-validation-for="FoodsModel.Did"></span>
+                            <span class="text-danger" asp-validation-for="FoodModel.Did"></span>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="royalbutton col-md-12">Submit</button>
                         </div>
                     </form>
-
+                    @if (TempData["FoodSuccess"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["FoodSuccess"]</div>
+                    }
                 </div>
             </div>
         </div>
@@ -325,69 +321,78 @@
 
                     <form method="post" asp-controller="Admin" asp-action="AddTour" enctype="multipart/form-data" class="row g-3">
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="TourModel.Tname">Title</label>
+                            <label class="form-label" >Title</label>
                             <input class="form-control" type="text" asp-for="TourModel.Tname" />
                             <span class="text-danger" asp-validation-for="TourModel.Tname"></span>
                         </div>
+
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="TourModel.Tday">Day</label>
+                            <label class="form-label" >Day</label>
                             <input class="form-control" type="number" asp-for="TourModel.Tday" />
                             <span class="text-danger" asp-validation-for="TourModel.Tday"></span>
                         </div>
+
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="TourModel.Tpickup">Pickup Point</label>
+                            <label class="form-label" >Pickup Point</label>
                             <input class="form-control" type="text" asp-for="TourModel.Tpickup" />
                             <span class="text-danger" asp-validation-for="TourModel.Tpickup"></span>
                         </div>
+
+                         <div class="col-md-12">
+                            <label class="form-label" >Package</label>
+                            <select asp-for="TourModel.Pid" class="form-select"
+                                    asp-items="@(new SelectList(Model.PackageList, "Pid", "Pname"))">
+                                <option value="">-- Select Package --</option>
+                            </select>
+                            <span asp-validation-for="TourModel.Pid" class="text-danger"></span>
+                            <span class="text-danger" asp-validation-for="TourModel.Pid"></span>
+                        </div>
+
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="TourModel.Toverview">Overview</label>
+                            <label class="form-label" >Image 1</label>
+                            <input type="file" class="form-control" asp-for="TourModel.Timg1" />
+                            <span class="text-danger" asp-validation-for="TourModel.Timg1"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label" >Image 2</label>
+                            <input type="file" class="form-control" asp-for="TourModel.Timg2" />
+                            <span class="text-danger" asp-validation-for="TourModel.Timg2"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label" >Image 3</label>
+                            <input type="file" class="form-control" asp-for="TourModel.Timg3" />
+                            <span class="text-danger" asp-validation-for="TourModel.Timg3"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label" >Image 4</label>
+                            <input type="file" class="form-control" asp-for="TourModel.Timg4" />
+                            <span class="text-danger" asp-validation-for="TourModel.Timg4"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label" >Overview</label>
                             <textarea class="form-control" asp-for="TourModel.Toverview"></textarea>
                             <span class="text-danger" asp-validation-for="TourModel.Toverview"></span>
                         </div>
+
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="TourModel.Thighlights">Highlights</label>
+                            <label class="form-label" >Highlights</label>
                             <textarea class="form-control" asp-for="TourModel.Thighlights"></textarea>
                             <span class="text-danger" asp-validation-for="TourModel.Thighlights"></span>
                         </div>
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="TourModel.Timg1">Image 1</label>
-                            <input type="file" class="form-control" name="Timg1" />
-                            <span class="text-danger" asp-validation-for="TourModel.Timg1"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="TourModel.Timg2">Image 2</label>
-                            <input type="file" class="form-control" name="Timg2" />
-                            <span class="text-danger" asp-validation-for="TourModel.Timg2"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="TourModel.Timg3">Image 3</label>
-                            <input type="file" class="form-control" name="Timg3" />
-                            <span class="text-danger" asp-validation-for="TourModel.Timg3"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="TourModel.Timg4">Image 4</label>
-                            <input type="file" class="form-control" name="Timg4" />
-                            <span class="text-danger" asp-validation-for="TourModel.Timg4"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="TourModel.Pid">Package</label>
-                            <select class="form-select" asp-for="TourModel.Pid">
-                                <option hidden value="">Select</option>
-                                @* @if (Model?.TourModel?.PackageList != null) *@
-                                @* { *@
-                                @*     @foreach (var package in Model.TourModel.PackageList) *@
-                                @*     { *@
-                                @*         <option value="@package.Pid">@package.Pname</option> *@
-                                @*     } *@
-                                @* } *@
-                            </select>
-                            <span class="text-danger" asp-validation-for="TourModel.Pid"></span>
-                        </div>
+
+                       
                         <div class="text-center">
                             <button type="submit" class="royalbutton col-md-12">Submit</button>
                         </div>
                     </form>
-
+                    @if (TempData["TourSuccess"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["TourSuccess"]</div>
+                    }
                 </div>
             </div>
         </div>
@@ -400,57 +405,48 @@
                     <h5 class="card-title">Add Itinerary </h5>
 
                     <form method="post" asp-controller="Admin" asp-action="AddItinerary" class="row g-3">
+                       
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="ItineraryModel.Iname">Itinerary Name</label>
-                            <input class="form-control" type="text" asp-for="ItineraryModel.Iname" />
-                            <span class="text-danger" asp-validation-for="ItineraryModel.Iname"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="ItineraryModel.Tid">Tour</label>
-                            <select class="form-select" asp-for="ItineraryModel.Tid">
-                                <option hidden value="">Select</option>
-                                @if (Model?.ItineraryModel?.TourList != null)
-                                {
-                                    @foreach (var tour in Model.ItineraryModel.TourList)
-                                    {
-                                        <option value="@tour.Tid">@tour.Tname</option>
-                                    }
-                                }
+                            <label class="form-label" >Tour</label>
+                            <select asp-for="ItineraryModel.Tid" class="form-select"
+                                    asp-items="@(new SelectList(Model.TourList, "Tid", "Tname"))">
+                                <option value="">-- Select Tour --</option>
                             </select>
                             <span class="text-danger" asp-validation-for="ItineraryModel.Tid"></span>
                         </div>
+
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="ItineraryModel.Iday1">Day 1</label>
+                            <label class="form-label" >Day 1</label>
                             <textarea class="form-control" asp-for="ItineraryModel.Iday1"></textarea>
                             <span class="text-danger" asp-validation-for="ItineraryModel.Iday1"></span>
                         </div>
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="ItineraryModel.Iday2">Day 2</label>
-                            <textarea class="form-control" asp-for="ItineraryModel.Iday2"></textarea>
+                            <label class="form-label" >Day 2</label>
+                            <textarea class="form-control" ></textarea>
                             <span class="text-danger" asp-validation-for="ItineraryModel.Iday2"></span>
                         </div>
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="ItineraryModel.Iday3">Day 3</label>
+                            <label class="form-label" >Day 3</label>
                             <textarea class="form-control" asp-for="ItineraryModel.Iday3"></textarea>
                             <span class="text-danger" asp-validation-for="ItineraryModel.Iday3"></span>
                         </div>
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="ItineraryModel.Iday4">Day 4</label>
+                            <label class="form-label" >Day 4</label>
                             <textarea class="form-control" asp-for="ItineraryModel.Iday4"></textarea>
                             <span class="text-danger" asp-validation-for="ItineraryModel.Iday4"></span>
                         </div>
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="ItineraryModel.Iday5">Day 5</label>
+                            <label class="form-label" >Day 5</label>
                             <textarea class="form-control" asp-for="ItineraryModel.Iday5"></textarea>
                             <span class="text-danger" asp-validation-for="ItineraryModel.Iday5"></span>
                         </div>
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="ItineraryModel.Iday6">Day 6</label>
+                            <label class="form-label" >Day 6</label>
                             <textarea class="form-control" asp-for="ItineraryModel.Iday6"></textarea>
                             <span class="text-danger" asp-validation-for="ItineraryModel.Iday6"></span>
                         </div>
                         <div class="col-md-12">
-                            <label class="form-label" asp-for="ItineraryModel.Iday7">Day 7</label>
+                            <label class="form-label" >Day 7</label>
                             <textarea class="form-control" asp-for="ItineraryModel.Iday7"></textarea>
                             <span class="text-danger" asp-validation-for="ItineraryModel.Iday7"></span>
                         </div>
@@ -458,66 +454,14 @@
                             <button type="submit" class="royalbutton col-md-12">Submit</button>
                         </div>
                     </form>
-
+                    @if (TempData["ItinerarySuccess"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["ItinerarySuccess"]</div>
+                    }
                 </div>
             </div>
         </div>
 
-
-        @* Add Festival Packages *@
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Add Festival Packages </h5>
-
-                    <form method="post" asp-controller="Admin" asp-action="AddFestival" enctype="multipart/form-data" class="row g-3">
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="FestivalModel.Fpname">Festival Name</label>
-                            <input class="form-control" type="text" asp-for="FestivalModel.Fpname" />
-                            <span class="text-danger" asp-validation-for="FestivalModel.Fpname"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="FestivalModel.Fplocation">Location</label>
-                            <input class="form-control" type="text" asp-for="FestivalModel.Fplocation" />
-                            <span class="text-danger" asp-validation-for="FestivalModel.Fplocation"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="FestivalModel.Fpprice">Price</label>
-                            <input class="form-control" type="number" step="0.01" asp-for="FestivalModel.Fpprice" />
-                            <span class="text-danger" asp-validation-for="FestivalModel.Fpprice"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="FestivalModel.Fpday">Day - Night</label>
-                            <input class="form-control" type="number" asp-for="FestivalModel.Fpday" />
-                            <span class="text-danger" asp-validation-for="FestivalModel.Fpday"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="FestivalModel.Fpimg">Thumbnail</label>
-                            <input type="file" class="form-control" name="FpimgFile" />
-                            <span class="text-danger" asp-validation-for="FestivalModel.Fpimg"></span>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="form-label" asp-for="FestivalModel.Did">Destination</label>
-                            <select class="form-select" asp-for="FestivalModel.Did">
-                                <option hidden value="">Select</option>
-                                @* @if (Model?.FestivalModel?.DestinationList != null) *@
-                                @* { *@
-                                @*     @foreach (var destination in Model.FestivalModel.DestinationList) *@
-                                @*     { *@
-                                @*         <option value="@destination.Did">@destination.Dname</option> *@
-                                @*     } *@
-                                @* } *@
-                            </select>
-                            <span class="text-danger" asp-validation-for="FestivalModel.Did"></span>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="royalbutton col-md-12">Submit</button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-        </div>
 
         @section Scripts {
             @{
@@ -531,41 +475,3 @@
 
     </div>
 </section>
-
-
-@* Add All Activity *@
-@* <div class="col-md-6"> *@
-@*     <div class="card"> *@
-@*         <div class="card-body"> *@
-@*             <h5 class="card-title">Add All Activity</h5> *@
-
-@*             <form method="post" asp-controller="Admin" asp-action="AddAllActivity" enctype="multipart/form-data" class="row g-3"> *@
-@*                 <div class="col-md-12"> *@
-@*                     <label class="form-label">Name</label> *@
-@*                     <input class="form-control" type="text" /> *@
-@*                     <span class="text-danger"></span> *@
-@*                 </div> *@
-
-@*                 <div class="col-md-12"> *@
-@*                     <label class="form-label">Icon Image</label> *@
-@*                     <input type="file" class="form-control" /> *@
-@*                     <span class="text-danger"></span> *@
-@*                 </div> *@
-
-@*                 <div class="col-md-12"> *@
-@*                     <label class="form-label">Destination Type</label> *@
-@*                     <select class="form-select"> *@
-@*                         <option hidden value="">Select</option> *@
-@*                         <option value="Domestic">Domestic</option> *@
-@*                         <option value="International">International</option> *@
-@*                     </select> *@
-@*                     <span class="text-danger"></span> *@
-@*                 </div> *@
-
-@*                 <div class="text-center"> *@
-@*                     <button type="submit" class="royalbutton col-md-12">Submit</button> *@
-@*                 </div> *@
-@*             </form> *@
-@*         </div> *@
-@*     </div> *@
-@* </div> *@
