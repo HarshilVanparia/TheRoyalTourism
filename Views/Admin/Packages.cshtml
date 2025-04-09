@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TheRoyalTourism.Models.AdminDataTablesViewModel
+@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewData["Title"] = "Packages";
 }
@@ -93,187 +94,28 @@
 <section class="packages-plan ">
     <div class="container">
         <div class="row">
-
-            <div class="col-xl-4 col-md-4 col-lg-4 col-sm-6 mb-4 ">
-                <div class="card" style="border-radius:15px;">
-                    <div class="card-image">
-                        <img src="/Images/Domestic_Packages/Goa.png" class="img-fluid" loading="lazy" alt="packages image">
-                    </div>
-                    <div class="card-content">
-                        <div class="location"><img src="https://theroyaltourism.in/frontend/images/icon/location.svg" loading="lazy" class="img-fluid me-1" alt="icon"> Goa</div>
-                        <h2 class="title">Tropical Bliss Goa Getaway</h2>
-                        <p class="price">
-                            <span class="prim-txt">Starting 8999</span>
-                            / EMI Available
-                        </p>
-                        <div class="duration">
-                            <span><img src="https://theroyaltourism.in/frontend/images/icon/clock.svg" loading="lazy" class="img-fluid me-1" alt="icon"> 2N/3D</span>
-                            <a href="" class="view-more">Delete </a>
+            @foreach (var pack in Model.Packages)
+            {
+                <div class="col-xl-4 col-md-4 col-lg-4 col-sm-6 mb-4 ">
+                    <div class="card" style="border-radius:15px;">
+                        <div class="card-image">
+                            <img src="~/uploads/@pack.Pimg" class="img-fluid" loading="lazy" alt="packages image">
+                        </div>
+                        <div class="card-content">
+                            <div class="location"><img src="https://theroyaltourism.in/frontend/images/icon/location.svg" loading="lazy" class="img-fluid me-1" alt="icon">@pack.Plocation</div>
+                            <h2 class="title">@pack.Pname</h2>
+                            <p class="price">
+                                <span class="prim-txt">Starting @pack.Pprice</span>
+                                / EMI Available
+                            </p>
+                            <div class="duration">
+                                <span><img src="https://theroyaltourism.in/frontend/images/icon/clock.svg" loading="lazy" class="img-fluid me-1" alt="icon"> @pack.Pday N</span>
+                                <a href="" class="view-more">Delete </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-xl-4 col-md-4 col-lg-4 col-sm-6">
-                <div class="card" style="border-radius:15px;">
-                    <div class="card-image">
-                        <img src="/Images/Domestic_Packages/Jammu & Kashmir.png" class="img-fluid" loading="lazy" alt="packages image">
-                    </div>
-                    <div class="card-content">
-                        <div class="location"><img src="https://theroyaltourism.in/frontend/images/icon/location.svg" loading="lazy" class="img-fluid me-1" alt="icon"> Royal Goa</div>
-                        <h2 class="title">Meadows of Heaven</h2>
-                        <p class="price">
-                            <span class="prim-txt">Starting 8999</span>
-                            / EMI Available
-                        </p>
-                        <div class="duration">
-                            <span><img src="https://theroyaltourism.in/frontend/images/icon/clock.svg" loading="lazy" class="img-fluid me-1" alt="icon"> 3N/4D</span>
-                            <a href="" class="view-more">Delete </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-md-4 col-lg-4 col-sm-6">
-                <div class="card" style="border-radius:15px;">
-                    <div class="card-image">
-                        <img src="/Images/Domestic_Packages/Himachal Pradesh.png" class="img-fluid" loading="lazy" alt="packages image">
-                    </div>
-                    <div class="card-content">
-                        <div class="location"><img src="https://theroyaltourism.in/frontend/images/icon/location.svg" loading="lazy" class="img-fluid me-1" alt="icon"> Royal Himachal Pradesh</div>
-                        <h2 class="title">Mystic Himachal Adventure</h2>
-                        <p class="price">
-                            <span class="prim-txt">Starting 9999</span>
-                            / EMI Available
-                        </p>
-                        <div class="duration">
-                            <span><img src="https://theroyaltourism.in/frontend/images/icon/clock.svg" loading="lazy" class="img-fluid me-1" alt="icon"> 5N/6D</span>
-                            <a href="" class="view-more">Delete </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-md-4 col-lg-4 col-sm-6 mb-4">
-                <div class="card" style="border-radius:15px;">
-                    <div class="card-image">
-                        <img src="/Images/Domestic_Packages/Rajasthan.png" class="img-fluid" loading="lazy" alt="packages image">
-                    </div>
-                    <div class="card-content">
-                        <div class="location"><img src="https://theroyaltourism.in/frontend/images/icon/location.svg" loading="lazy" class="img-fluid me-1" alt="icon"> Royal Himachal Pradesh</div>
-                        <h2 class="title">Tales of the Desert Kings</h2>
-                        <p class="price">
-                            <span class="prim-txt">Starting 9999</span>
-                            / EMI Available
-                        </p>
-                        <div class="duration">
-                            <span><img src="https://theroyaltourism.in/frontend/images/icon/clock.svg" loading="lazy" class="img-fluid me-1" alt="icon"> 5N/6D</span>
-                            <a href="" class="view-more">Delete </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-md-4 col-lg-4 col-sm-6">
-                <div class="card" style="border-radius:15px;">
-                    <div class="card-image">
-                        <img src="/Images/Domestic_Packages/Kerala.png" class="img-fluid" loading="lazy" alt="packages image">
-                    </div>
-                    <div class="card-content">
-                        <div class="location"><img src="https://theroyaltourism.in/frontend/images/icon/location.svg" loading="lazy" class="img-fluid me-1" alt="icon"> Royal Himachal Pradesh</div>
-                        <h2 class="title">God’s Own Bliss</h2>
-                        <p class="price">
-                            <span class="prim-txt">Starting 9999</span>
-                            / EMI Available
-                        </p>
-                        <div class="duration">
-                            <span><img src="https://theroyaltourism.in/frontend/images/icon/clock.svg" loading="lazy" class="img-fluid me-1" alt="icon"> 6N/7D</span>
-                            <a href="" class="view-more">Delete </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-md-4 col-lg-4 col-sm-6">
-                <div class="card" style="border-radius:15px;">
-                    <div class="card-image">
-                        <img src="/Images/Domestic_Packages/Mysore.png" class="img-fluid" loading="lazy" alt="packages image">
-                    </div>
-                    <div class="card-content">
-                        <div class="location"><img src="https://theroyaltourism.in/frontend/images/icon/location.svg" loading="lazy" class="img-fluid me-1" alt="icon"> Royal Rajasthan</div>
-                        <h2 class="title">Palace City Charms</h2>
-                        <p class="price">
-                            <span class="prim-txt">Starting 9999</span>
-                            / EMI Available
-                        </p>
-                        <div class="duration">
-                            <span><img src="https://theroyaltourism.in/frontend/images/icon/clock.svg" loading="lazy" class="img-fluid me-1" alt="icon"> 5N/6D</span>
-                            <a href="" class="view-more">Delete </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-md-4 col-lg-4 col-sm-6">
-                <div class="card " style="border-radius:15px;">
-                    <div class="card-image">
-                        <img src="/Images/Domestic_Packages/Coorg.png" class="img-fluid" loading="lazy" alt="packages image">
-                    </div>
-                    <div class="card-content">
-                        <div class="location"><img src="https://theroyaltourism.in/frontend/images/icon/location.svg" loading="lazy" class="img-fluid me-1" alt="icon"> Royal Rajasthan</div>
-                        <h2 class="title">The Coffee Highlands</h2>
-                        <p class="price">
-                            <span class="prim-txt">Starting 9999</span>
-                            / EMI Available
-                        </p>
-                        <div class="duration">
-                            <span><img src="https://theroyaltourism.in/frontend/images/icon/clock.svg" loading="lazy" class="img-fluid me-1" alt="icon"> 7N/8D</span>
-                            <a href="" class="view-more">Delete </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-md-4 col-lg-4 col-sm-6">
-                <div class="card" style="border-radius:15px;">
-                    <div class="card-image">
-                        <img src="/Images/Domestic_Packages/Ooty.png" class="img-fluid" loading="lazy" alt="packages image">
-                    </div>
-                    <div class="card-content">
-                        <div class="location"><img src="https://theroyaltourism.in/frontend/images/icon/location.svg" loading="lazy" class="img-fluid me-1" alt="icon"> Royal Coorg</div>
-                        <h2 class="title">Emerald Tea Trails</h2>
-                        <p class="price">
-                            <span class="prim-txt">Starting 9999</span>
-                            / EMI Available
-                        </p>
-                        <div class="duration">
-                            <span><img src="https://theroyaltourism.in/frontend/images/icon/clock.svg" loading="lazy" class="img-fluid me-1" alt="icon"> 3N/4D</span>
-                            <a href="" class="view-more">Delete </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-md-4 col-lg-4 col-sm-6">
-                <div class="card" style="border-radius:15px;">
-                    <div class="card-image">
-                        <img src="/Images/Domestic_Packages/Andaman.png" class="img-fluid" loading="lazy" alt="packages image">
-                    </div>
-                    <div class="card-content">
-                        <div class="location"><img src="https://theroyaltourism.in/frontend/images/icon/location.svg" loading="lazy" class="img-fluid me-1" alt="icon"> Royal Coorg</div>
-                        <h2 class="title">Ocean Whispers</h2>
-                        <p class="price">
-                            <span class="prim-txt">Starting 9999</span>
-                            / EMI Available
-                        </p>
-                        <div class="duration">
-                            <span><img src="https://theroyaltourism.in/frontend/images/icon/clock.svg" loading="lazy" class="img-fluid me-1" alt="icon"> 3N/4D</span>
-                            <a href="" class="view-more">Delete </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            }
         </div>
     </div>
 </section>

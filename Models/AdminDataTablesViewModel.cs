@@ -10,6 +10,10 @@
         public List<FoodDisplayModel> Foods { get; set; }
 
         public List<DestinationDisplayModel> Destinations { get; set; }
+
+        public List<PackageDisplayModel> Packages { get; set; }
+        public List<TourDisplayModel> Tour { get; set; }
+
     }
 }
     

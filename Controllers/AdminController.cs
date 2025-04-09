@@ -10,6 +10,8 @@ using System.Reflection;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Azure.Documents;
+using Microsoft.CodeAnalysis.Elfie.Diagnostics;
+using ServiceStack;
 
 namespace TheRoyalTourism.Controllers
 {
@@ -73,7 +75,7 @@ namespace TheRoyalTourism.Controllers
                 Itineraries = new List<ItineraryModel>(),
                 Activities = new List<ActivityDisplayModel>(),
                 Foods = new List<FoodDisplayModel>(),
-                Destinations = new List<DestinationDisplayModel>()
+                Destinations = new List<DestinationDisplayModel>(),
             };
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -167,11 +169,63 @@ namespace TheRoyalTourism.Controllers
 
         public IActionResult Packages()
         {
-            return View();
+            var model = new AdminDataTablesViewModel
+            {
+                Packages = new List<PackageDisplayModel>(),
+            };
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new SqlCommand("SELECT * FROM packages", conn);
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    model.Packages.Add(new PackageDisplayModel
+                    {
+                        Pname = reader["pname"].ToString(),
+                        Plocation = reader["plocation"].ToString(),
+                        Pprice = (decimal)reader["pprice"],
+                        Pimg = reader["pimg"].ToString(),
+                        Pday = (int)reader["pday"],
+                        Package_Type = reader["package_type"].ToString(),
+                        Did = (int)reader["did"],
+                    });
+                }
+                reader.Close();
+            }
+            return View(model);
         }
         public IActionResult Details()
         {
-            return View();
+            var model = new AdminDataTablesViewModel
+            {
+                Tour = new List<TourDisplayModel>(),
+            };
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new SqlCommand("SELECT * FROM tourdetails", conn);
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    model.Tour.Add(new TourDisplayModel
+                    {
+                        Tid = (int)reader["tid"],
+                        Tname = reader["tname"].ToString(),
+                        Tday = (int)reader["tday"],
+                        Tpickup = reader["tpickup"].ToString(),
+                        Timg1 = reader["timg1"].ToString(),
+                        Timg2 = reader["timg2"].ToString(),
+                        Timg3 = reader["timg3"].ToString(),
+                        Timg4 = reader["timg4"].ToString(),
+                        Toverview = reader["toverview"].ToString(),
+                        Thighlights = reader["thighlights"].ToString(),
+                        Pid = (int)reader["pid"],
+                    });
+                }
+                reader.Close();
+            }
+            return View(model);
         }
         public IActionResult AdminProfile()
         {
