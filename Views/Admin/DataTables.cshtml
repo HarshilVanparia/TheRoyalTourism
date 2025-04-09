@@ -45,83 +45,24 @@
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Email Address</th>
                                 <th class="text-center">Number</th>
-                                <th class="text-center">Password</th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Change Status</th>
+                                @* <th class="text-center">Password</th> *@
                             </tr>
                         </thead>
                         <tbody>
-                            @* @foreach (var user in Model) *@
-                            @* { *@
-                            <tr>
-                                <td class="text-center">Name</td>
-                                <td class="text-center">Email</td>
-                                <td class="text-center">1230456987</td>
-                                <td class="text-center">******</td>
-                                <td class="text-center">
-                                    @* @if (user.Status == "Active") *@
-                                    @* { *@
-                                    <i class='bi-check-circle-fill Active text-danger'></i>
-                                    <p class='px-1 Active d-inline fs-6 text-danger'>Inactive</p>
-                                    @* } *@
-                                    @* else *@
-                                    @* { *@
-                                    <i class='bi-x-circle-fill Inactive text-success'></i>
-                                    <p class='px-1 Inactive d-inline fs-6 text-success'>Active</p>
-                                    @* } *@
-                                </td>
-                                <td class="text-center">
-                                    @* @if (user.Status == "Active") *@
-                                    @* { *@
-                                    <a href="#" class='btn btn-royal'>Inactive</a>
-                                    @* } *@
-                                    @* else *@
-                                    @* { *@
-                                    <a href="#" class='btn btn-royal'>Active</a>
-                                    @* } *@
-                                </td>
-                            </tr>
-                            @* } *@
+                            @foreach (var user in Model.Users)
+                            {
+                                <tr>
+                                    <td class="text-center">@user.Fullname</td>
+                                    <td class="text-center">@user.Email</td>
+                                    <td class="text-center">@user.Pnumber</td>
+                                    @* <td class="text-center">@user.Password</td> *@
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
-        <!-- Activity Types Table -->
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Activity Types</h5>
-                    <table class="table datatable table-hover table-responsive-xxl">
-                        <thead>
-                            <tr>
-                                <th class="text-center">ID</th>
-                                <th class="text-center">Icons</th>
-                                <th class="text-center">Names</th>
-                                <th class="text-center">Manage</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @* @foreach (var anime in Model) *@
-                            @* { *@
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center">
-                                    <img class='rounded-circle' style='width: 50px;height: 50px;' src="Thumbnail" />
-                                </td>
-                                <td class="text-center">Surfing</td>
-                                <td class="text-center">
-                                    <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
-                                </td>
-                            </tr>
-                            @* } *@
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
 
         <!-- Itinerary Table -->
         <div class="col-lg-12">
@@ -131,7 +72,6 @@
                     <table class="table datatable table-hover table-responsive-xxl">
                         <thead>
                             <tr>
-                                <th class="text-center">Package Name</th>
                                 <th class="text-center">Day1</th>
                                 <th class="text-center">Day2</th>
                                 <th class="text-center">Day3</th>
@@ -143,23 +83,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @* @foreach (var anime in Model) *@
-                            @* { *@
-                            <tr>
-                                <td class="text-center">Goa Adventure Trail</td>
-                                <td class="text-center text-truncate ">Temples...</td>
-                                <td class="text-center text-truncate">Temples...</td>
-                                <td class="text-center text-truncate">Temples...</td>
-                                <td class="text-center text-truncate">Temples...</td>
-                                <td class="text-center text-truncate">Temples...</td>
-                                <td class="text-center text-truncate">Temples...</td>
-                                <td class="text-center text-truncate">Temples...</td>
-                                <td class="text-center">
-                                    <a href="#"><i class='bi bi-pencil-square fw-bold fs-5 royalicon'></i></a>
-                                    <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
-                                </td>
-                            </tr>
-                            @* } *@
+                            @foreach (var iti in Model.Itineraries)
+                            {
+                                <tr>
+                                    <td class="text-center text-truncate">@iti.Iday1</td>
+                                    <td class="text-center text-truncate">@iti.Iday2</td>
+                                    <td class="text-center text-truncate">@iti.Iday3</td>
+                                    <td class="text-center text-truncate">@iti.Iday4</td>
+                                    <td class="text-center text-truncate">@iti.Iday5</td>
+                                    <td class="text-center text-truncate">@iti.Iday6</td>
+                                    <td class="text-center text-truncate">@iti.Iday7</td>
+                                    <td class="text-center">
+                                        <a href="#"><i class='bi bi-pencil-square fw-bold fs-5 royalicon'></i></a>
+                                        <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -180,27 +119,27 @@
                                 <th class="text-center">Location</th>
                                 <th class="text-center">Activity</th>
                                 <th class="text-center">Image</th>
-                                <th class="text-center">D.Name</th>
+                                <th class="text-center">Destination Name</th>
                                 <th class="text-center">Manage</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @* @foreach (var anime in Model) *@
-                            @* { *@
-                            <tr>
-                                <td class="text-center text-truncate ">A lively....</td>
-                                <td class="text-center ">7 Hours</td>
-                                <td class="text-center ">Baga Beach</td>
-                                <td class="text-center ">Chilling</td>
-                                <td class="text-center">
-                                    <img class='rounded-circle' style='width: 50px;height: 50px;' src="Thumbnail" />
-                                </td>
-                                <td class="text-center ">Goa</td>
-                                <td class="text-center">
-                                    <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
-                                </td>
-                            </tr>
-                            @* } *@
+                            @foreach (var activity in Model.Activities)
+                            {
+                                <tr>
+                                    <td class="text-center text-truncate ">@activity.Adetail</td>
+                                    <td class="text-center ">@activity.Atime</td>
+                                    <td class="text-center ">@activity.Alocation</td>
+                                    <td class="text-center ">@activity.Aactivity</td>
+                                    <td class="text-center">
+                                        <img class='rounded-2' style='width: 50px;height: 50px;' src="~/uploads/@activity.Aimg" />
+                                    </td>
+                                    <td class="text-center ">@activity.Dname</td>
+                                    <td class="text-center">
+                                        <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -219,25 +158,25 @@
                                 <th class="text-center">Details</th>
                                 <th class="text-center">Location</th>
                                 <th class="text-center">Image</th>
-                                <th class="text-center">D.Name</th>
+                                <th class="text-center">Destination Name</th>
                                 <th class="text-center">Manage</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @* @foreach (var anime in Model) *@
-                            @* { *@
+                            @foreach (var food in Model.Foods)
+                            { 
                             <tr>
-                                <td class="text-center text-truncate ">A lively....</td>
-                                <td class="text-center ">Palolem Beach</td>
+                                <td class="text-center text-truncate ">@food.Fdetail</td>
+                                    <td class="text-center ">@food.Flocation</td>
                                 <td class="text-center">
-                                    <img class='rounded-circle' style='width: 50px;height: 50px;' src="Thumbnail" />
+                                        <img class='rounded-2' style='width: 50px;height: 50px;' src="~/uploads/@food.Fimg" />
                                 </td>
-                                <td class="text-center ">Goa</td>
+                                    <td class="text-center ">@food.Dname</td>
                                 <td class="text-center">
                                     <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
                                 </td>
                             </tr>
-                            @* } *@
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -261,20 +200,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @* @foreach (var anime in Model) *@
-                            @* { *@
+                            @foreach (var dest in Model.Destinations)
+                            {
                             <tr>
-                                <td class="text-center text-truncate ">1</td>
-                                <td class="text-center ">Andaman</td>
+                                    <td class="text-center text-truncate ">@dest.Did</td>
+                                    <td class="text-center ">@dest.Dname</td>
                                 <td class="text-center">
-                                    <img class='rounded-circle' style='width: 50px;height: 50px;' src="Thumbnail" />
+                                        <img class='rounded-2' style='width: 50px;height: 50px;' src="~/uploads/@dest.Dimg" />
                                 </td>
-                                <td class="text-center ">Domestic</td>
+                                    <td class="text-center ">@dest.Dtype</td>
                                 <td class="text-center">
                                     <a href="#"><i class='bi bi-trash-fill fw-bold fs-5 royalicon'></i></a>
                                 </td>
                             </tr>
-                            @* } *@
+                            }
                         </tbody>
                     </table>
                 </div>

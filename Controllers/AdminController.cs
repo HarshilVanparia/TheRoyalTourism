@@ -67,105 +67,103 @@ namespace TheRoyalTourism.Controllers
 
         public IActionResult DataTables()
         {
-            //var model = new AdminDataTablesViewModel
-            //{
-            //    Users = new List<UserModel>(),
-            //    Itineraries = new List<ItineraryModel>(),
-            //    Activities = new List<ActivityModel>(),
-            //    Foods = new List<FoodModel>(),
-            //    Destinations = new List<DestinationModel>()
-            //};
+            var model = new AdminDataTablesViewModel
+            {
+                Users = new List<UserModel>(),
+                Itineraries = new List<ItineraryModel>(),
+                Activities = new List<ActivityDisplayModel>(),
+                Foods = new List<FoodDisplayModel>(),
+                Destinations = new List<DestinationDisplayModel>()
+            };
 
-            //using (SqlConnection conn = new SqlConnection(_connectionString))
-            //{
-            //    conn.Open();
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
 
-            //    // Users
-            //    var cmd = new SqlCommand("SELECT * FROM users", conn);
-            //    var reader = cmd.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        model.Users.Add(new UserModel
-            //        {
-            //            Fullname = reader["uname"].ToString(),
-            //            Email = reader["uemail"].ToString(),
-            //            Pnumber = reader["unumber"].ToString(),
-            //            Password = reader["upassword"].ToString(),
-            //        });
-            //    }
-            //    reader.Close();
+                // Users
+                var cmd = new SqlCommand("SELECT * FROM users WHERE role = 'user'", conn);
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    model.Users.Add(new UserModel
+                    {
+                        Fullname = reader["fullname"].ToString(),     // Adjust based on actual column name
+                        Email = reader["email"].ToString(),
+                        Pnumber = reader["pnumber"].ToString(),
+                        Password = reader["password"].ToString()
+                    });
+                }
+                reader.Close();
 
-            //    // Destinations
-            //    cmd = new SqlCommand("SELECT * FROM destinations", conn);
-            //    reader = cmd.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        model.Destinations.Add(new DestinationModel
-            //        {
-            //            Did = (int)reader["did"],
-            //            Dname = reader["dname"].ToString(),
-            //            Dimg = reader["dimg"].ToString(),
-            //            Dtype = reader["dtype"].ToString()
-            //        });
-            //    }
-            //    reader.Close();
+                // Destinations
+                cmd = new SqlCommand("SELECT * FROM destinations", conn);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    model.Destinations.Add(new DestinationDisplayModel
+                    {
+                        Did = (int)reader["did"],
+                        Dname = reader["dname"].ToString(),
+                        Dimg = reader["dimg"].ToString(),
+                        Dtype = reader["dtype"].ToString()
+                    });
+                }
+                reader.Close();
 
-            //    // Foods
-            //    cmd = new SqlCommand("SELECT f.*, d.dname FROM foods f JOIN destinations d ON f.did = d.did", conn);
-            //    reader = cmd.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        model.Foods.Add(new FoodModel
-            //        {
-            //            Fdetail = reader["fdetail"].ToString(),
-            //            Flocation = reader["flocation"].ToString(),
-            //            Fimg = reader["fimg"].ToString(),
-            //            Dname = reader["dname"].ToString()
-            //        });
-            //    }
-            //    reader.Close();
+                // Foods
+                cmd = new SqlCommand("SELECT f.*, d.dname FROM foods f JOIN destinations d ON f.did = d.did", conn);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    model.Foods.Add(new FoodDisplayModel
+                    {
+                        Fdetail = reader["fdetail"].ToString(),
+                        Flocation = reader["flocation"].ToString(),
+                        Fimg = reader["fimg"].ToString(),
+                        Dname = reader["dname"].ToString()
+                    });
+                }
+                reader.Close();
 
-            //    // Activities
-            //    cmd = new SqlCommand("SELECT a.*, d.dname FROM activities a JOIN destinations d ON a.did = d.did", conn);
-            //    reader = cmd.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        model.Activities.Add(new ActivityModel
-            //        {
-            //            Adetail = reader["adetail"].ToString(),
-            //            Atime = reader["atime"].ToString(),
-            //            Alocation = reader["alocation"].ToString(),
-            //            Aactivity = reader["aactivity"].ToString(),
-            //            Aimg = reader["aimg"].ToString(),
-            //            Dname = reader["dname"].ToString()
-            //        });
-            //    }
-            //    reader.Close();
+                // Activities
+                cmd = new SqlCommand("SELECT a.*, d.dname FROM activities a JOIN destinations d ON a.did = d.did", conn);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    model.Activities.Add(new ActivityDisplayModel
+                    {
+                        Adetail = reader["adetail"].ToString(),
+                        Atime = reader["atime"].ToString(),
+                        Alocation = reader["alocation"].ToString(),
+                        Aactivity = reader["aactivity"].ToString(),
+                        Aimg = reader["aimg"].ToString(),
+                        Dname = reader["dname"].ToString()
+                    });
+                }
+                reader.Close();
 
-            //    // Itineraries
-            //    cmd = new SqlCommand("SELECT i.*, t.tname FROM itineraries i JOIN tourdetails t ON i.tid = t.tid", conn);
-            //    reader = cmd.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        model.Itineraries.Add(new ItineraryModel
-            //        {
-            //            Iday1 = reader["iday1"].ToString(),
-            //            Iday2 = reader["iday2"].ToString(),
-            //            Iday3 = reader["iday3"].ToString(),
-            //            Iday4 = reader["iday4"].ToString(),
-            //            Iday5 = reader["iday5"].ToString(),
-            //            Iday6 = reader["iday6"].ToString(),
-            //            Iday7 = reader["iday7"].ToString()
-            //        });
-            //    }
-            //    reader.Close();
+                // Itineraries (Join with tour name)
+                cmd = new SqlCommand("SELECT i.*, t.tname FROM itineraries i JOIN tourdetails t ON i.tid = t.tid", conn);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    model.Itineraries.Add(new ItineraryModel
+                    {
+                        Iday1 = reader["iday1"].ToString(),
+                        Iday2 = reader["iday2"].ToString(),
+                        Iday3 = reader["iday3"].ToString(),
+                        Iday4 = reader["iday4"].ToString(),
+                        Iday5 = reader["iday5"].ToString(),
+                        Iday6 = reader["iday6"].ToString(),
+                        Iday7 = reader["iday7"].ToString(),
+                    });
+                }
+                reader.Close();
+            }
 
-              
-            //}
-
-            //return View(model);
-            return View();
+            return View(model);
         }
+
 
         public IActionResult Packages()
         {

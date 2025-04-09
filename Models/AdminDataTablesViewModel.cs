@@ -3,10 +3,13 @@
     public class AdminDataTablesViewModel
     {
         public List<UserModel> Users { get; set; }
-        public List<ActivityModel> Activities { get; set; }
         public List<ItineraryModel> Itineraries { get; set; }
-        public List<FoodModel> Foods { get; set; }
-        public List<DestinationModel> Destinations { get; set; }
+
+        // Replace original models with Display ones:
+        public List<ActivityDisplayModel> Activities { get; set; }
+        public List<FoodDisplayModel> Foods { get; set; }
+
+        public List<DestinationDisplayModel> Destinations { get; set; }
     }
 }
     
