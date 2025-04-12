@@ -125,7 +125,7 @@ a {
 
 .inter_btn {
     background-color: transparent;
-    color: var(--white);
+    color: var(--white) !important;
     border: 1.7px solid var(--white);
     border-radius: 100px;
     padding-block: 8px;
@@ -137,14 +137,14 @@ a {
 
     .inter_btn:hover {
         background-color: var(--white);
-        color: #C559B1;
+        color: #C559B1 !important;
         cursor: pointer;
     }
 
 
 .domestic_btn {
     background-color: transparent;
-    color: var(--primery);
+    color: var(--primery) !important;
     border: 1.7px solid var(--primery);
     border-radius: 100px;
     padding-block: 8px;
@@ -156,7 +156,7 @@ a {
 
     .domestic_btn:hover {
         background-color: var(--primery);
-        color: var(--white);
+        color: var(--white) !important;
         cursor: pointer;
     }
 

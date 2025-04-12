@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.Features;
 using System.IO;
+using TheRoyalTourism.Controllers;
 
 namespace TheRoyalTourism
 {
@@ -8,6 +9,7 @@ namespace TheRoyalTourism
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.Configure<RazorpayOptions>(builder.Configuration.GetSection("Razorpay"));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

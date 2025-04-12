@@ -1,6 +1,10 @@
-﻿
+﻿@model TheRoyalTourism.Models.AdminDataTablesViewModel
 @{
     ViewData["Title"] = "International Destinations";
+    if (Context.Session.GetString("UserEmail") == null)
+    {
+        Context.Response.Redirect("/Register/LoginPage");
+    }
 }
 
 @* banner *@
@@ -47,55 +51,15 @@
 
         <div class="row text-center">
 
-            @* row 1 start*@
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/International/Malaysia.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/International/Singapore.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/International/Maldives.png" alt="Place 3" width="100%" />
-            </div>
-            @* row 1 end *@
-
-
-            @* row 2 start *@
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/International/Bali.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/International/Sri Lanka.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/International/Dubai.png" alt="Place 3" width="100%" />
-            </div>
-            @* row 2 end *@
-
-            @* row 3 start *@
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/International/Bangkok.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/International/Europe.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/International/Thailand.png" alt="Place 3" width="100%" />
-            </div>
-            @* row 3 end *@
-
-            @* row 4 start *@
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/International/Vietnam.png" alt="Place 3" width="100%" />
-            </div>
-            @* row 4 end *@
-
+            @foreach (var dest in Model.Destinations)
+            {
+                <div class="col-sm-4 mb-4">
+                    <a class="packageimg" asp-controller="Destination" asp-action="PackagesPage" asp-route-id="@dest.Did">
+                        <img src="~/uploads/@dest.Dimg" alt="Place 3" width="100%" />
+                    </a>
+                </div>
+            }
+  
         </div>
     </div>
 </section>

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model TheRoyalTourism.Models.AdminDataTablesViewModel
+
+@{
     ViewData["Title"] = "Domestic Destinations";
 
     if (Context.Session.GetString("UserEmail") == null)
@@ -44,88 +46,14 @@
 
         <div class="row text-center">
 
-            @* row 1 start*@
-            <div class="col-sm-4 mb-4">
-                <a class="packageimg" asp-controller="Destination" asp-action="PackagesPage">
-                    <img src="/Images/Domestic/kerala.png" alt="Place 3" width="100%" />
-                </a>
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/goa.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/himachal pradesh.png" alt="Place 3" width="100%" />
-            </div>
-            @* row 1 end *@
-
-
-            @* row 2 start *@
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Jammu & Kashmir.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/ladakh.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Delhi.png" alt="Place 3" width="100%" />
-            </div>
-            @* row 2 end *@
-
-            @* row 3 start *@
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Rajasthan.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/coorg.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Andaman.png" alt="Place 3" width="100%" />
-            </div>
-            @* row 3 end *@
-
-            @* row 4 start *@
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Kodaikanal.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Mysore.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Ooty.png" alt="Place 3" width="100%" />
-            </div>
-            @* row 4 end *@
-
-            @* row 5 start *@
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Wayanad.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Amritsar.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Darjeling- Gangtok.png" alt="Place 3" width="100%" />
-            </div>
-            @* row 5 end *@
-
-            @* row 6 start *@
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Tirupathi.png" alt="Place 3" width="100%" />
-            </div>
-
-            <div class="col-sm-4 mb-4">
-                <img src="/Images/Domestic/Shiridi.png" alt="Place 3" width="100%" />
-            </div>
-            @* row 6 end *@
+            @foreach (var dest in Model.Destinations)
+            {
+                <div class="col-sm-4 mb-4">
+                    <a class="packageimg" asp-controller="Destination" asp-action="PackagesPage" asp-route-id="@dest.Did">
+                        <img src="~/uploads/@dest.Dimg" alt="Place 3" width="100%" />
+                    </a>
+                </div>
+            }
 
         </div>
     </div>

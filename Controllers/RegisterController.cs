@@ -87,7 +87,7 @@ namespace TheRoyalTourism.Controllers
             {
                 conn.Open();
 
-                string query = "SELECT fullname, email, pnumber, role FROM users WHERE email = @Email AND password = @Password";
+                string query = "SELECT uid, fullname, email, pnumber, role FROM users WHERE email = @Email AND password = @Password";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -106,6 +106,7 @@ namespace TheRoyalTourism.Controllers
 
                     if (reader.Read())
                     {
+                        HttpContext.Session.SetInt32("UserId", Convert.ToInt32(reader["uid"]));
                         HttpContext.Session.SetString("UserName", reader["fullname"].ToString());
                         HttpContext.Session.SetString("UserEmail", reader["email"].ToString());
                         HttpContext.Session.SetString("Pnumber", reader["pnumber"].ToString());

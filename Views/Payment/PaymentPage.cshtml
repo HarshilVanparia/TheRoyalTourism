@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Payment";
+}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+    var options = {
+        "key": "@ViewBag.Key",
+        "amount": "@(ViewBag.Amount * 100)", 
+        "currency": "INR",
+        "name": "The Royal Tourism",
+        "description": "Tour Booking",
+        "order_id": "@ViewBag.OrderId",
+        "handler": function (response) {
+            // Send this to server for confirmation
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/Payment/PaymentSuccess';
+
+            var fields = {
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_signature: response.razorpay_signature,
+                pid: '@ViewBag.Pid',
+                amount: '@ViewBag.Amount'
+            };
+
+            for (const key in fields) {
+                if (fields.hasOwnProperty(key)) {
+                    var hidden = document.createElement('input');
+                    hidden.type = 'hidden';
+                    hidden.name = key;
+                    hidden.value = fields[key];
+                    form.appendChild(hidden);
+                }
+            }
+
+            document.body.appendChild(form);
+            form.submit();
+        },
+        "prefill": {
+            "email": "@Context.Session.GetString("UserEmail")"
+        },
+        "theme": {
+            "color": "#F37254"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+</script>

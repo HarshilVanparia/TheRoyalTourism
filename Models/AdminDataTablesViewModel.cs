@@ -14,6 +14,8 @@
         public List<PackageDisplayModel> Packages { get; set; }
         public List<TourDisplayModel> Tour { get; set; }
 
+        public List<PlaceDisplayModel> Places { get; set; }
+
     }
 }
     

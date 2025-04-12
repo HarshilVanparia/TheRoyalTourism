@@ -88,7 +88,7 @@
             @* Highlights *@
             <h2 class="main-text mt-4">Tour Highlights</h2>
             <ul>
-                @foreach (var item in tour.Thighlights.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                @foreach (var item in tour.Thighlights.Split('.', StringSplitOptions.RemoveEmptyEntries))
                 {
                     <li class="my-2 mt-4">@item.Trim()</li>
                 }

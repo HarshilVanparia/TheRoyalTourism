@@ -1,5 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Any Festival";
+    if (Context.Session.GetString("UserEmail") == null)
+    {
+        Context.Response.Redirect("/Register/LoginPage");
+    }
 }
 
 @* banner *@
