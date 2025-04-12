@@ -119,6 +119,7 @@ namespace TheRoyalTourism.Controllers
                 {
                     model.Foods.Add(new FoodDisplayModel
                     {
+                        Fid = (int)reader["fid"],
                         Fdetail = reader["fdetail"].ToString(),
                         Flocation = reader["flocation"].ToString(),
                         Fimg = reader["fimg"].ToString(),
@@ -134,6 +135,7 @@ namespace TheRoyalTourism.Controllers
                 {
                     model.Activities.Add(new ActivityDisplayModel
                     {
+                        Aid = (int)reader["aid"],
                         Adetail = reader["adetail"].ToString(),
                         Atime = reader["atime"].ToString(),
                         Alocation = reader["alocation"].ToString(),
@@ -182,6 +184,7 @@ namespace TheRoyalTourism.Controllers
                 {
                     model.Packages.Add(new PackageDisplayModel
                     {
+                        Pid = (int)reader["pid"],
                         Pname = reader["pname"].ToString(),
                         Plocation = reader["plocation"].ToString(),
                         Pprice = (decimal)reader["pprice"],
@@ -227,11 +230,131 @@ namespace TheRoyalTourism.Controllers
             }
             return View(model);
         }
+
+
+        //Destination Delete
+        public IActionResult DeleteDestination(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new SqlCommand("DELETE FROM destinations WHERE did = @id", conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+
+            return RedirectToAction("DataTables"); // Or whatever view shows the table
+        }
+
+        //Activity Delete
+        public IActionResult DeleteActivity(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new SqlCommand("DELETE FROM activities WHERE aid = @id", conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+
+            return RedirectToAction("DataTables"); // Or whatever view shows the table
+        }
+
+        //Food Delete
+        public IActionResult DeleteFood(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new SqlCommand("DELETE FROM foods WHERE fid = @id", conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+
+            return RedirectToAction("DataTables"); // Or whatever view shows the table
+        }
+
+        //Package Delete
+        public IActionResult DeletePackage(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new SqlCommand("DELETE FROM packages WHERE pid = @id", conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+
+            return RedirectToAction("Packages"); // Or whatever view shows the table
+        }
+
+        //Package Delete
+        public IActionResult DeleteTour(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new SqlCommand("DELETE FROM tourdetails WHERE tid = @id", conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+
+            return RedirectToAction("Details"); // Or whatever view shows the table
+        }
+
+
+
         public IActionResult AdminProfile()
         {
             return View();
+            //var model = new AdminDataTablesViewModel
+            //{
+            //    Users = new List<UserModel>(),
+            //};
+            //using (SqlConnection conn = new SqlConnection(_connectionString))
+            //{
+            //    conn.Open();
+            //    var cmd = new SqlCommand("SELECT * FROM users where role= 'admin'", conn);
+            //    var reader = cmd.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        model.Users.Add(new UserModel
+            //        {
+            //            Uid = (int)reader["uid"],
+            //            Fullname = reader["fullname"].ToString(),
+            //            Email = reader["email"].ToString(),
+            //            Pnumber = reader["pnumber"].ToString(),
+            //            Password = reader["password"].ToString(),
+            //        });
+            //    }
+            //    reader.Close();
+            //}
+            //return View(model);
         }
 
+        [HttpPost]
+        public IActionResult UpdateAdmin(string FullName, string Pnumber)
+        {
+            string email = HttpContext.Session.GetString("UserEmail");
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                var cmd = new SqlCommand("UPDATE users SET Fullname = @name, pnumber = @number WHERE Email = @email", conn);
+                cmd.Parameters.AddWithValue("@name", FullName);
+                cmd.Parameters.AddWithValue("@number", Pnumber);
+                cmd.Parameters.AddWithValue("@email", email);
+
+                cmd.ExecuteNonQuery();
+            }
+
+            // Update session values
+            HttpContext.Session.SetString("UserName", FullName);
+            HttpContext.Session.SetString("Pnumber", Pnumber);
+
+            TempData["UpdateMessage"] = "Profile updated successfully!";
+            return RedirectToAction("AdminProfile"); // Change to your actual profile view action
+        }
 
 
 

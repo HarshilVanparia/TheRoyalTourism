@@ -110,7 +110,7 @@
                             </p>
                             <div class="duration">
                                 <span><img src="https://theroyaltourism.in/frontend/images/icon/clock.svg" loading="lazy" class="img-fluid me-1" alt="icon"> @pack.Pday N</span>
-                                <a href="" class="view-more">Delete </a>
+                                <a asp-action="DeletePackage" asp-route-id="@pack.Pid" onclick="return confirm('Are you sure you want to delete this Package?')" class="view-more">Delete </a>
                             </div>
                         </div>
                     </div>

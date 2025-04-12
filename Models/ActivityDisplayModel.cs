@@ -2,6 +2,7 @@
 {
     public class ActivityDisplayModel
     {
+        public int Aid { get; set; }
         public string Adetail { get; set; }
         public string Atime { get; set; }
         public string Alocation { get; set; }

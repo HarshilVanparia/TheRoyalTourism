@@ -36,21 +36,21 @@
 
 @foreach (var tour in Model.Tour)
 {
-    <section class="p-2 bg-white rounded-3">
+    <section class="p-2 bg-white rounded-3 shadow-lg mb-4">
 
         @* 4 images *@
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-1">
             <div class="col-md-3">
-                <img src="~/uploads/@tour.Timg1" width="100%" alt="Sunset">
+                <img src="~/uploads/@tour.Timg1" width="95%" alt="Sunset">
             </div>
             <div class="col-md-3">
-                <img src="~/uploads/@tour.Timg2" width="100%" height="100%" alt="Beach">
+                <img src="~/uploads/@tour.Timg2" width="95%" height="100%" alt="Beach">
             </div>
             <div class="col-md-3">
-                <img src="~/uploads/@tour.Timg3" width="100%" alt="Palm Trees">
+                <img src="~/uploads/@tour.Timg3" width="95%" alt="Palm Trees">
             </div>
             <div class="col-md-3">
-                <img src="~/uploads/@tour.Timg4" width="100%" alt="Restaurant">
+                <img src="~/uploads/@tour.Timg4" width="95%" alt="Restaurant">
             </div>
         </div>
         @* 4 images *@
@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-            <h4 class="mt-2"><a class="main-text fw-bold mt-2">Delete</a></h4>
+            <h4 class="mt-2"><a asp-action="DeleteTour" asp-route-id="@tour.Tid" onclick="return confirm('Are you sure you want to delete this Tour?')" class="main-text fw-bold mt-2">Delete</a></h4>
         </div>
 
         <div class="mt-3  ">

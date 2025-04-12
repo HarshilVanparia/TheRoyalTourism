@@ -29,13 +29,6 @@
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
                         </li>
 
-                        @* <li class="nav-item"> *@
-                        @*     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password"> *@
-                        @*         Change *@
-                        @*         Password *@
-                        @*     </button> *@
-                        @* </li> *@
-
                     </ul>
                     <div class="tab-content pt-2">
 
@@ -63,7 +56,10 @@
                                     @Context.Session.GetString("Pnumber")
                                 </div>
                             </div>
-
+                            @if (TempData["UpdateMessage"] != null)
+                            {
+                                <div class="alert alert-success text-center">@TempData["UpdateMessage"]</div>
+                            }
                         </div>
 
                         <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -71,12 +67,12 @@
                             <!-- Profile Edit Form -->
 
 
-                            <form action="admin_update_profile.php" method="post" enctype="multipart/form-data" id="form1">
+                            <form method="post" asp-controller="Admin" asp-action="UpdateAdmin">
 
                                 <div class="row mb-3">
                                     <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input name="fn" type="text" class="form-control" id="fn1" value="@Context.Session.GetString("UserName")" />
+                                        <input name="FullName" type="text" class="form-control" value="@Context.Session.GetString("UserName")" />
                                         <span id="fn_err"></span>
                                     </div>
                                 </div>
@@ -84,7 +80,7 @@
                                 <div class="row mb-3">
                                     <label for="Country" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input name="reg" type="text" class="form-control" id="Country" value="@Context.Session.GetString("UserEmail")" readonly disabled />
+                                        <input name="EmailReadonly" type="text" class="form-control"  value="@Context.Session.GetString("UserEmail")" readonly disabled />
                                         <span id="fn_err"></span>
                                     </div>
                                 </div>
@@ -92,50 +88,17 @@
                                 <div class="row mb-3">
                                     <label for="Email" class="col-md-4 col-lg-3 col-form-label">Number</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input name="email" type="email" class="form-control" id="Email" value="@Context.Session.GetString("Pnumber")">
+                                        <input name="Pnumber" type="number" class="form-control"  value="@Context.Session.GetString("Pnumber")">
                                     </div>
                                 </div>
 
                                 <div class="text-center">
-                                    <input type="submit" class="btn btn-primary" name="u_admin" value="Save Changes">
+                                    <input type="submit" class="btn royalbutton text-white" name="u_admin" value="Save Changes">
                                 </div>
                             </form><!-- End Profile Edit Form -->
                            
                         </div>
 
-
-
-                        <div class="tab-pane fade pt-3" id="profile-change-password">
-                            <!-- Change Password Form -->
-                            <form action="admin_update_password.php" method="post" enctype="multipart/form-data" id="form1">
-
-                                <div class="row mb-3">
-                                    <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Old Password</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="old_pswd" type="password" class="form-control" id="old_pswd_id">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="pswd" type="password" class="form-control" id="pwd">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="repswd" type="password" class="form-control" id="repwd">
-                                    </div>
-                                </div>
-
-                                <div class="text-center">
-                                    <input type="submit" class="btn btn-primary" name="btn" value="Change Password">
-                                </div>
-                            </form><!-- End Change Password Form -->
-
-                        </div>
 
                     </div><!-- End Bordered Tabs -->
 
