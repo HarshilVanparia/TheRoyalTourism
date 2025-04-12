@@ -307,29 +307,6 @@ namespace TheRoyalTourism.Controllers
         public IActionResult AdminProfile()
         {
             return View();
-            //var model = new AdminDataTablesViewModel
-            //{
-            //    Users = new List<UserModel>(),
-            //};
-            //using (SqlConnection conn = new SqlConnection(_connectionString))
-            //{
-            //    conn.Open();
-            //    var cmd = new SqlCommand("SELECT * FROM users where role= 'admin'", conn);
-            //    var reader = cmd.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        model.Users.Add(new UserModel
-            //        {
-            //            Uid = (int)reader["uid"],
-            //            Fullname = reader["fullname"].ToString(),
-            //            Email = reader["email"].ToString(),
-            //            Pnumber = reader["pnumber"].ToString(),
-            //            Password = reader["password"].ToString(),
-            //        });
-            //    }
-            //    reader.Close();
-            //}
-            //return View(model);
         }
 
         [HttpPost]
