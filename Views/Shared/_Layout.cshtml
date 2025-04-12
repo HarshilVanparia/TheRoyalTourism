@@ -71,6 +71,7 @@
                                     <i class="bi bi-person-circle"></i> @Context.Session.GetString("UserName")
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="@Url.Action("UserProfilePage", "User")"><i class="bi bi-person"></i> Profile</a></li>
                                     <li><a class="dropdown-item" href="@Url.Action("Logout", "Register")"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
                                 </ul>
                             </li>

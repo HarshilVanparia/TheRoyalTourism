@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "User Profile";
+}
+
+<section class="d-flex justify-content-center align-items-center" style="min-height: 30vh;">
+    <div class="card my-4 py-2 w-50">
+        <div class="card-body d-flex flex-column align-items-center">
+            <!-- Bordered Tabs -->
+            <h2 class="mb-4">Profile Details</h2>
+
+            <div class="container">
+                <div class="row justify-content-center mb-2">
+                    <div class="col-md-4 text-end fw-bold">Full Name:</div>
+                    <div class="col-md-6">@Context.Session.GetString("UserName")</div>
+                </div>
+
+                <div class="row justify-content-center mb-2">
+                    <div class="col-md-4 text-end fw-bold">Email:</div>
+                    <div class="col-md-6">@Context.Session.GetString("UserEmail")</div>
+                </div>
+
+                <div class="row justify-content-center mb-2">
+                    <div class="col-md-4 text-end fw-bold">Number:</div>
+                    <div class="col-md-6">@Context.Session.GetString("Pnumber")</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<section class="contact_section mb-4">
+    @if (ViewBag.Purchases != null && ((List<TheRoyalTourism.Models.PurchaseModel>)ViewBag.Purchases).Any())
+    {
+        <div class="container mt-4">
+            <h4 class="text-center mb-3">Your Purchases</h4>
+            <table class="table table-bordered text-center">
+                <thead class="table-dark" >
+                    <tr>
+                        <th>Package Name</th>
+                        <th>Location</th>
+                        <th>Original Price</th>
+                        <th>Amount Paid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in (List<TheRoyalTourism.Models.PurchaseModel>)ViewBag.Purchases)
+                    {
+                        <tr>
+                            <td>@item.PackageName</td>
+                            <td>@item.Location</td>
+                            <td>₹@item.Price.ToString("N2")</td>
+                            <td>₹@item.AmountPaid.ToString("N2")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="text-center mt-4">
+            <p>You have not made any bookings yet.</p>
+        </div>
+    }
+
+
+</section>
+
